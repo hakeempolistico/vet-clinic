@@ -5,6 +5,14 @@ class Dashboard extends CI_Controller {
 
 	public function index()
 	{
-		$this->load->view('admin/pages/dashboard');
+		$data = array(
+			'contentHeader' => array(
+				'contentTitle' => 'Dashboard',
+				'subContentTitle' => 'Control Panel',
+				'breadCrumbIcon' => 'fa-dashboard',
+				'breadCrumbBase' => 'Dashboard',
+			)
+		);
+		$this->load->view('admin/pages/dashboard', $data);
 	}
 }

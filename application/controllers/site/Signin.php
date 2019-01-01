@@ -5,9 +5,6 @@ class Signin extends CI_Controller {
 
 	public function index()
 	{
-        $this->load->library('form_validation');
-		$this->load->helper(array('form', 'url'));
-
 		//Form Rules
         $this->form_validation->set_rules('user_email', 'Email', 'required|valid_email');
 		$this->form_validation->set_rules('user_password', 'Password', 'required');
@@ -16,7 +13,6 @@ class Signin extends CI_Controller {
             $this->load->view('site/signin');
         }
         else {
-        	$this->load->model('global_model');
         	$data = $this->input->post();
 
         	$credentials = $this->global_model->getRow('users', 'user_email', $data['user_email']);

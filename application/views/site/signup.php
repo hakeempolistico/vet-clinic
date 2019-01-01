@@ -40,14 +40,14 @@
                         <div class="col-md-6 col-lg-6 col-sm-12">
                             <div class="form-group">
                                 <label for="fname" class="text-uppercase">First Name</label>
-                                <input type="text" class="form-control" minlength="2" name="fname" required>
+                                <input type="text" class="form-control" minlength="2" name="fname" value="<?= set_value('fname') ?>" required>
                                 <label class="text-danger"><?= form_error('fname'); ?></label>
                             </div>
                         </div>
                         <div class="col-md-6 col-lg-6 col-sm-12">
                             <div class="form-group">
                                 <label for="lname" class="text-uppercase">Last Name</label>
-                                <input type="text" class="form-control" minlength="2" name="lname" required>
+                                <input type="text" class="form-control" minlength="2" name="lname" value="<?= set_value('lname') ?>"  required>
                                 <label class="text-danger"><?= form_error('lname'); ?></label>
                             </div>
                         </div>
@@ -55,19 +55,19 @@
 
                     <div class="form-group">
                         <label for="user_email" class="text-uppercase">Email Address</label>
-                        <input type="email" class="form-control" name="user_email" required>
+                        <input type="email" class="form-control" name="user_email" value="<?= set_value('user_email') ?>"  required>
                         <label class="text-danger"><?= form_error('user_email'); ?></label>
                     </div>
 
                     <div class="form-group">
                         <label for="contact_num" class="text-uppercase">Contact Number</label>
-                        <input type="number" name="contact_num" class="form-control" maxlength="11" placeholder="09XXXXXXXXX" required>
+                        <input type="number" name="contact_num" value="<?= set_value('contact_num') ?>"  class="form-control" maxlength="11" placeholder="09XXXXXXXXX" required>
                         <label class="text-danger"><?= form_error('contact_num'); ?></label>
                     </div>
 
                     <div class="form-group">
                         <label for="address" class="text-uppercase">Address</label>
-                        <textarea class="form-control" rows="2" id="comment" name="address"></textarea>
+                        <textarea class="form-control" rows="2" id="comment" name="address"><?= set_value('address') ?></textarea>
                     </div>
 
                     <div class="row">

@@ -11,6 +11,10 @@ class Schedule extends CI_Controller {
 
 	public function index()
 	{
-		$this->load->view('site/schedule');
+		$data = array(
+			'profile' => $this->global_model->getRow('profiles', 'user_id', $this->session->user_id),
+			'user' => $this->global_model->getRow('users', 'user_id', $this->session->user_id)
+		);
+		$this->load->view('site/schedule', $data);
 	}
 }

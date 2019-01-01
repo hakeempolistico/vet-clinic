@@ -42,8 +42,8 @@
                 <div class="card">
                     <div class="card-block">
                         <center class="m-t-30"> <img src="<?= base_url('assets/site/') ?>/images/users/5.jpg" class="img-circle" width="150" />
-                            <h4 class="card-title m-t-10">Hanna Gover</h4>
-                            <h6 class="card-subtitle">Accoubts Manager Amix corp</h6>
+                            <h4 class="card-title m-t-10"><?= $profile->fname.' '.$profile->lname ?></h4>
+                            <h6 class="card-subtitle"><?= $user->user_email ?></h6>
                             <div class="row text-center justify-content-md-center">
                                 <div class="col-4"><a href="javascript:void(0)" class="link"><i class="icon-people"></i> <font class="font-medium">254</font></a></div>
                                 <div class="col-4"><a href="javascript:void(0)" class="link"><i class="icon-picture"></i> <font class="font-medium">54</font></a></div>
@@ -61,7 +61,7 @@
                             <div class="form-group">
                                 <label class="col-md-12 text-primary">First Name</label>
                                 <div class="col-md-12">
-                                    <input name="fname" type="text" value="<?= $fname ?>" class="form-control form-control-line">
+                                    <input name="fname" type="text" value="<?= $profile->fname ?>" class="form-control form-control-line">
                                 </div>
                                 <?php if(form_error('fname')): ?>
                                     <label class="text-danger"><?= form_error('fname'); ?></label>
@@ -70,7 +70,7 @@
                             <div class="form-group">
                                 <label class="col-md-12 text-primary">Middle Name</label>
                                 <div class="col-md-12">
-                                    <input name="mname" type="text" value="<?= $mname ?>" class="form-control form-control-line">
+                                    <input name="mname" type="text" value="<?= $profile->mname ?>" class="form-control form-control-line">
                                 </div>
                                 <?php if(form_error('mname')): ?>
                                     <label class="text-danger"><?= form_error('mname'); ?></label>
@@ -79,7 +79,7 @@
                             <div class="form-group">
                                 <label class="col-md-12 text-primary">Last Name</label>
                                 <div class="col-md-12">
-                                    <input name="lname" type="text" value="<?= $lname ?>" class="form-control form-control-line">
+                                    <input name="lname" type="text" value="<?= $profile->lname ?>" class="form-control form-control-line">
                                 </div>
                                 <?php if(form_error('lname')): ?>
                                     <label class="text-danger"><?= form_error('lname'); ?></label>
@@ -88,7 +88,7 @@
                             <div class="form-group">
                                 <label class="col-md-12 text-primary">Address</label>
                                 <div class="col-md-12">
-                                    <textarea name="address" rows="5" class="form-control form-control-line"><?= $address ?></textarea>
+                                    <textarea name="address" rows="5" class="form-control form-control-line"><?= $profile->address ?></textarea>
                                 </div>
                                 <?php if(form_error('address')): ?>
                                     <label class="text-danger"><?= form_error('address'); ?></label>
@@ -99,8 +99,8 @@
                                 <div class="col-sm-12">
                                     <select name="gender_id" class="form-control form-control-line" required="">
                                         <option></option>
-                                        <option value="1" <?= $gender_id == 1 ? 'selected' : ''  ?> >Male</option>
-                                        <option value="2" <?= $gender_id == 2 ? 'selected' : ''  ?> >Female</option>
+                                        <option value="1" <?= $profile->gender_id == 1 ? 'selected' : ''  ?> >Male</option>
+                                        <option value="2" <?= $profile->gender_id == 2 ? 'selected' : ''  ?> >Female</option>
                                     </select>
                                 </div>
                                 <?php if(form_error('gender_id')): ?>
@@ -110,7 +110,7 @@
                             <div class="form-group">
                                 <label class="col-md-12 text-primary">Contact No</label>
                                 <div class="col-md-12">
-                                    <input name="contact_num" value="<?= $contact_num ?>" type="text" class="form-control form-control-line">
+                                    <input name="contact_num" value="<?= $profile->contact_num ?>" type="text" class="form-control form-control-line">
                                 </div>
                                 <?php if(form_error('contact_num')): ?>
                                     <label class="text-danger"><?= form_error('contact_num'); ?></label>

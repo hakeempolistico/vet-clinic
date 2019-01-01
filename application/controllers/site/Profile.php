@@ -11,16 +11,11 @@ class Profile extends CI_Controller {
 
 	public function index()
 	{
-
-        $this->load->library('form_validation');
-		$this->load->helper(array('form', 'url'));
-
 		$this->form_validation->set_rules('fname', 'First Name', 'required');
         $this->form_validation->set_rules('lname', 'Last Name', 'required');
         $this->form_validation->set_rules('address', 'Address', 'required');
         $this->form_validation->set_rules('gender_id', 'Gender', 'required');
         $this->form_validation->set_rules('contact_num', 'Contact Number', 'required');
-
 
 
         if ($this->form_validation->run() == FALSE)
@@ -42,7 +37,10 @@ class Profile extends CI_Controller {
 
 	private function loadView()
 	{
-		$profile = $this->global_model->getRow('profiles', 'user_id', $this->session->user_id);
-	    $this->load->view('site/profile', $profile);
+		$data = array(
+			'profile' => $this->global_model->getRow('profiles', 'user_id', $this->session->user_id),
+			'user' => $this->global_model->getRow('users', 'user_id', $this->session->user_id)
+		);
+	    $this->load->view('site/profile', $data);
 	}
 }

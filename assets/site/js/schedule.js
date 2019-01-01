@@ -1,4 +1,12 @@
  $(document).ready(function() {
+
+        /*  ------------ initialize Date picker ----------- */
+
+        // $('#datetimepicker_request').datetimepicker();
+
+
+        /*  ------------ initialize calendar ----------- */
+
         var date = new Date();
         var d = date.getDate();
         var m = date.getMonth();

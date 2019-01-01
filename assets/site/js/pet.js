@@ -1,5 +1,4 @@
-<script type="text/javascript">
-    $(document).ready(function() {
-    $('#example').DataTable();
+ $(document).ready(function() {
+    $('#tbl_pet').DataTable();
+ 	$('#tbl_pet_view_history').DataTable();
 } );
-</script>

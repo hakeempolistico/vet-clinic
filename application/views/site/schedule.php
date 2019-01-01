@@ -23,50 +23,46 @@
         <div class="card">
             <div class="card-block">
 
-               <form class="form-horizontal form-material">
+                <form class="form-horizontal form-material">
                     <div class="form-group">
-                        <label class="col-md-12">Full Name</label>
+                        <label class="col-md-12">Date and time:</label>
                         <div class="col-md-12">
-                            <input type="text" placeholder="Johnathan Doe" class="form-control form-control-line">
+                           <div class="form-group">
+                                <div class='input-group date' id='datetimepicker_request'>
+                                    <input type='text' class="form-control" />
+                                    <span class="input-group-addon">
+                                        <span class="glyphicon glyphicon-calendar"></span>
+                                    </span>
+                                </div>
+                            </div>
                         </div>
                     </div>
                     <div class="form-group">
-                        <label for="example-email" class="col-md-12">Email</label>
+                        <label for="example-email" class="col-md-12">Pet: </label>
                         <div class="col-md-12">
-                            <input type="email" placeholder="johnathan@admin.com" class="form-control form-control-line" name="example-email" id="example-email">
+                            <select class="form-control form-control-line" required="">
+                                <option></option>
+                                <option>name of pet 1</option>
+                                <option>name of pet 2</option>
+                                <option>name of pet 3</option>
+                            </select>
                         </div>
                     </div>
+
                     <div class="form-group">
-                        <label class="col-md-12">Password</label>
-                        <div class="col-md-12">
-                            <input type="password" value="password" class="form-control form-control-line">
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <label class="col-md-12">Phone No</label>
-                        <div class="col-md-12">
-                            <input type="text" placeholder="123 456 7890" class="form-control form-control-line">
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <label class="col-md-12">Address</label>
+                        <label class="col-md-12">Description:</label>
                         <div class="col-md-12">
                             <textarea rows="5" class="form-control form-control-line"></textarea>
                         </div>
                     </div>
+
                     <div class="form-group">
-                        <label class="col-sm-12">Gender</label>
-                        <div class="col-sm-12">
-                            <select class="form-control form-control-line" required="">
-                                <option></option>
-                                <option>Male</option>
-                                <option>Female</option>
-                            </select>
-                        </div>
+                        <label for="example-email" class="col-md-12">Status: <span>Pending</span> </label>
                     </div>
-                    <div class="form-group">
+                    
+                    <div class="form-group text-center">
                         <div class="col-sm-12">
-                            <button class="btn btn-success">Update Profile</button>
+                            <button class="btn btn-danger">Save</button>
                         </div>
                     </div>
                 </form>

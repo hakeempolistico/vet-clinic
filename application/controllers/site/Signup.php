@@ -37,8 +37,10 @@ class Signup extends CI_Controller {
 
 		$this->global_model->insert('users', $user_data);
 
+                $user_id = $this->global_model->getUserId($data['user_email']);
+
 		$profile = array(
-			'user_id' => $this->global_model->getUserId($data['user_email']),
+			'user_id' => $user_id,
 			'fname' => $data['fname'],
 			'lname' => $data['lname'],
 			'address' => $data['address'],
@@ -46,11 +48,21 @@ class Signup extends CI_Controller {
 		);
 
 		if($this->global_model->insert('profiles', $profile)){
-                        $this->session->set_flashdata('alert-type', 'success');
-                        $this->session->set_flashdata('message', 'User Successfuly Registered');
-                        $this->session->set_flashdata('sub-message', 'Please update your profile in Profile Tab');
-                        //print_r($this->session->flashdata()); exit;
-                        redirect('site/dashboard');
+                    //Flash Data
+                    $this->session->set_flashdata('alert-type', 'success');
+                    $this->session->set_flashdata('message', 'User Successfuly Registered');
+                    $this->session->set_flashdata('sub-message', 'Please update your profile in Profile Tab');
+
+                    //Session
+                    $userData = array(
+                            'logged_in' => TRUE,
+                            'user_id' => $user_id,
+                            'user_type_name' => $this->global_model->getUserTypeName($data['user_email'])
+                    );
+                    $this->session->set_userdata($userData);
+
+                    //Redirect
+                    redirect('site/dashboard');
                 }
 
         }

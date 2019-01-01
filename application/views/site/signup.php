@@ -34,7 +34,6 @@
         <div class="row">
             <div class="col-md-4 login-sec">
                 <h2 class="text-center">Register Now</h2>
-
                 <?php echo form_open(site_url('site/signup')); ?>
                     <!-- <label class="text-danger"><?php echo validation_errors(); ?></label> -->
                     <div class="row">

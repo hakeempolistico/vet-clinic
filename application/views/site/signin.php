@@ -29,25 +29,25 @@
         <div class="row">
             <div class="col-md-4 login-sec">
                 <h2 class="text-center">Login Now</h2>
-                <form class="login-form">
-                    <div class="form-group">
-                        <label for="exampleInputEmail1" class="text-uppercase">Username</label>
-                        <input type="text" class="form-control" placeholder="" required="">
 
+                <?php echo form_open(site_url('site/signin')); ?>
+                    <label class="text-danger">
+                        <?= $this->session->flashdata('error_message') ? $this->session->flashdata('error_message'): ''; ?>
+                    </label>
+                    <div class="form-group">
+                        <label for="user_email" class="text-uppercase">Email</label>
+                        <input name="user_email" type="email" class="form-control" placeholder="" required="">
                     </div>
                     <div class="form-group">
-                        <label for="exampleInputPassword1" class="text-uppercase">Password</label>
-                        <input type="password" class="form-control" placeholder="" required="">
+                        <label for="user_password" class="text-uppercase">Password</label>
+                        <input name="user_password" type="password" class="form-control" placeholder="" required="">
                     </div>
-
-
+                    
                     <div class="form-check">
-                        <a type="submit" class="btn btn-login float-right" style="color:white" href="dashboard">Submit</a>
-                        <!--                 actual button 
-                        <div type="submit" class="btn btn-login float-right">Submit</div>  -->
+                        <button type="submit" class="btn btn-login float-right">Submit</button>
                     </div>
-
                 </form>
+
                 <div class="copy-text">Create Account <a href="signup">click here..</a></div>
             </div>
             <div class="col-md-8 banner-sec">

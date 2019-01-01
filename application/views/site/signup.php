@@ -34,49 +34,56 @@
         <div class="row">
             <div class="col-md-4 login-sec">
                 <h2 class="text-center">Register Now</h2>
-                <form class="login-form">
+
+                <?php echo form_open(site_url('site/signup')); ?>
+                    <!-- <label class="text-danger"><?php echo validation_errors(); ?></label> -->
+                    <div class="row">
+                        <div class="col-md-6 col-lg-6 col-sm-12">
+                            <div class="form-group">
+                                <label for="fname" class="text-uppercase">First Name</label>
+                                <input type="text" class="form-control" minlength="2" name="fname" required>
+                                <label class="text-danger"><?= form_error('fname'); ?></label>
+                            </div>
+                        </div>
+                        <div class="col-md-6 col-lg-6 col-sm-12">
+                            <div class="form-group">
+                                <label for="lname" class="text-uppercase">Last Name</label>
+                                <input type="text" class="form-control" minlength="2" name="lname" required>
+                                <label class="text-danger"><?= form_error('lname'); ?></label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="user_email" class="text-uppercase">Email Address</label>
+                        <input type="email" class="form-control" name="user_email" required>
+                        <label class="text-danger"><?= form_error('user_email'); ?></label>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="contact_num" class="text-uppercase">Contact Number</label>
+                        <input type="number" name="contact_num" class="form-control" maxlength="11" placeholder="09XXXXXXXXX" required>
+                        <label class="text-danger"><?= form_error('contact_num'); ?></label>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="address" class="text-uppercase">Address</label>
+                        <textarea class="form-control" rows="2" id="comment" name="address"></textarea>
+                    </div>
 
                     <div class="row">
                         <div class="col-md-6 col-lg-6 col-sm-12">
                             <div class="form-group">
-                                <label for="exampleInputEmail1" class="text-uppercase">First Name</label>
-                                <input type="text" class="form-control" minlength="2" placeholder="" required>
+                                <label for="user_password" class="text-uppercase">Password</label>
+                                <input name="user_password" type="password" class="form-control" minlength="6" placeholder="" required>
+                                <label class="text-danger"><?= form_error('password'); ?></label>
                             </div>
                         </div>
                         <div class="col-md-6 col-lg-6 col-sm-12">
                             <div class="form-group">
-                                <label for="exampleInputPassword1" class="text-uppercase">Last Name</label>
-                                <input type="text" class="form-control" minlength="2" placeholder="" required>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="form-group">
-                        <label for="exampleInputPassword1" class="text-uppercase">Email Address</label>
-                        <input type="email" class="form-control" placeholder="" required>
-                    </div>
-
-                    <div class="form-group">
-                        <label for="exampleInputPassword1" class="text-uppercase">Contact Number</label>
-                        <input type="number" class="form-control" maxlength="11" placeholder="09XXXXXXXXX" required>
-                    </div>
-
-                    <div class="form-group">
-                        <label for="exampleInputPassword1" class="text-uppercase">Address</label>
-                        <textarea class="form-control" rows="2" id="comment"></textarea>
-                    </div>
-
-                    <div class="row">
-                        <div class="col-md-6 col-lg-6 col-sm-12">
-                            <div class="form-group">
-                                <label for="exampleInputPassword1" class="text-uppercase">Password</label>
-                                <input type="password" class="form-control" minlength="6" placeholder="" required>
-                            </div>
-                        </div>
-                        <div class="col-md-6 col-lg-6 col-sm-12">
-                            <div class="form-group">
-                                <label for="exampleInputPassword1" class="text-uppercase">Confirm Password</label>
-                                <input type="password" class="form-control" minlength="6" placeholder="" required>
+                                <label for="confirm_password" class="text-uppercase">Confirm Password</label>
+                                <input name="confirm_password" type="password" class="form-control" minlength="6" placeholder="" required>
+                                <label class="text-danger"><?= form_error('confirm_password'); ?></label>
                             </div>
                         </div>
                     </div>
@@ -86,6 +93,7 @@
                     </div>
 
                 </form>
+
                 <div class="copy-text">Already member <a href="signin">click here..</a></div>
             </div>
             <div class="col-md-8 banner-sec">

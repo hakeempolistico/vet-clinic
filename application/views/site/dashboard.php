@@ -11,11 +11,12 @@
             </ol>
         </div>
         <div class="col-md-7 col-4 align-self-center">
-          
         </div>
     </div>
+    <?php $this->session->flashdata() ? $this->load->view('site/inc/alert_message') : ''; ?>
     <div class="row">
         <!-- CONTENT START -->
+
     
         <!-- CONTENT END -->
     </div>

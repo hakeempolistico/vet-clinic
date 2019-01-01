@@ -8,6 +8,12 @@ class Global_model extends CI_Model{
         return $query;
     }
 
+    public function update($table, $col, $val, $data)
+    {
+        $this->db->where($col, $val);
+        return $this->db->update($table, $data);
+    }
+
     public function getRecords($table, $order_by=null, $set=null)
     {
         if($order_by != null && $set != null)

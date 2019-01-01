@@ -29,7 +29,7 @@ class Signin extends CI_Controller {
         		//Session
                 $userData = array(
                         'logged_in' => TRUE,
-                        'user_id' => $user_id,
+                        'user_id' => $this->global_model->getUserId($data['user_email']),
                         'user_type_name' => $this->global_model->getUserTypeName($data['user_email'])
                 );
                 $this->session->set_userdata($userData);

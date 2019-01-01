@@ -36,8 +36,7 @@ class Signup extends CI_Controller {
 		);
 
 		$this->global_model->insert('users', $user_data);
-
-                $user_id = $this->global_model->getUserId($data['user_email']);
+        $user_id = $this->global_model->getUserId($data['user_email']);
 
 		$profile = array(
 			'user_id' => $user_id,

@@ -25,6 +25,22 @@ class Pet_model extends CI_Model{
         return $res;
     }
 
+    public function getPetDiagnose($whereArr, $order_by=null, $set=null)
+    {
+        if($order_by != null && $set != null)
+           $this->db->order_by($set, $order_by);
+        
+        $this->db->select('*');
+        $this->db->from('transactions');
+        $this->db->join('diagnose', 'diagnose.diagnose_id = transactions.diagnose_id');
+        $this->db->join('schedules', 'schedules.schedule_id = diagnose.schedule_id');
+        $this->db->where('user_id', $this->session->user_id);
+        $this->db->where($whereArr);
+
+        $res = $this->db->get()->result();
+        return $res;
+    }
+
 }
 
 ?>

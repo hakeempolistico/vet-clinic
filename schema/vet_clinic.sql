@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 05, 2019 at 06:49 PM
+-- Generation Time: Jan 05, 2019 at 08:28 PM
 -- Server version: 10.1.32-MariaDB
 -- PHP Version: 7.2.5
 
@@ -31,10 +31,15 @@ SET time_zone = "+00:00";
 CREATE TABLE `diagnose` (
   `diagnose_id` int(11) NOT NULL,
   `schedule_id` int(11) DEFAULT NULL,
-  `pet_id` int(11) DEFAULT NULL,
-  `user_id` int(11) DEFAULT NULL,
   `diagnose_details` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `diagnose`
+--
+
+INSERT INTO `diagnose` (`diagnose_id`, `schedule_id`, `diagnose_details`) VALUES
+(1, 1, 'Flees');
 
 -- --------------------------------------------------------
 
@@ -177,8 +182,8 @@ CREATE TABLE `pet_types` (
 --
 
 INSERT INTO `pet_types` (`pet_type_id`, `pet_type_name`) VALUES
-(1, 'dog'),
-(2, 'cat');
+(1, 'Dog'),
+(2, 'Cat');
 
 -- --------------------------------------------------------
 
@@ -234,10 +239,17 @@ CREATE TABLE `schedules` (
   `schedule_id` int(5) NOT NULL,
   `user_id` int(11) DEFAULT NULL,
   `pet_id` int(11) DEFAULT NULL,
-  `date_time` timestamp NULL DEFAULT NULL,
+  `schedule_date_time` timestamp NULL DEFAULT NULL,
   `schedule_description` text,
   `schedule_status` int(5) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `schedules`
+--
+
+INSERT INTO `schedules` (`schedule_id`, `user_id`, `pet_id`, `schedule_date_time`, `schedule_description`, `schedule_status`) VALUES
+(1, 17, 5, '2019-01-10 02:30:00', NULL, 1);
 
 -- --------------------------------------------------------
 
@@ -246,11 +258,18 @@ CREATE TABLE `schedules` (
 --
 
 CREATE TABLE `transactions` (
-  `id` int(11) NOT NULL,
+  `transaction_id` int(11) NOT NULL,
   `diagnose_id` int(11) DEFAULT NULL,
   `amount` int(11) DEFAULT NULL,
-  `date` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP
+  `transaction_date` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `transactions`
+--
+
+INSERT INTO `transactions` (`transaction_id`, `diagnose_id`, `amount`, `transaction_date`) VALUES
+(1, 1, 2000000, '2019-01-06 02:05:02');
 
 -- --------------------------------------------------------
 
@@ -316,6 +335,12 @@ INSERT INTO `user_types` (`user_type_id`, `user_type_name`) VALUES
 --
 
 --
+-- Indexes for table `diagnose`
+--
+ALTER TABLE `diagnose`
+  ADD PRIMARY KEY (`diagnose_id`);
+
+--
 -- Indexes for table `gender`
 --
 ALTER TABLE `gender`
@@ -346,6 +371,18 @@ ALTER TABLE `profiles`
   ADD PRIMARY KEY (`profile_id`);
 
 --
+-- Indexes for table `schedules`
+--
+ALTER TABLE `schedules`
+  ADD PRIMARY KEY (`schedule_id`);
+
+--
+-- Indexes for table `transactions`
+--
+ALTER TABLE `transactions`
+  ADD PRIMARY KEY (`transaction_id`);
+
+--
 -- Indexes for table `users`
 --
 ALTER TABLE `users`
@@ -360,6 +397,12 @@ ALTER TABLE `user_types`
 --
 -- AUTO_INCREMENT for dumped tables
 --
+
+--
+-- AUTO_INCREMENT for table `diagnose`
+--
+ALTER TABLE `diagnose`
+  MODIFY `diagnose_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `gender`
@@ -390,6 +433,18 @@ ALTER TABLE `pet_types`
 --
 ALTER TABLE `profiles`
   MODIFY `profile_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
+
+--
+-- AUTO_INCREMENT for table `schedules`
+--
+ALTER TABLE `schedules`
+  MODIFY `schedule_id` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- AUTO_INCREMENT for table `transactions`
+--
+ALTER TABLE `transactions`
+  MODIFY `transaction_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `users`

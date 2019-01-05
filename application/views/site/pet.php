@@ -123,7 +123,6 @@
                 dataType: "json",
                 data: {pet_id: pet_id},
                 success: function(res) {
-                    console.log(res)
                     $('#reg-pet-name').val(res.pet_name)
                     $('#reg-species').val(res.pet_type_id).change()
                     $('#reg-pet-breed').val(res.pet_breed)
@@ -137,6 +136,34 @@
 
         $("#tbl_pet").on('click', '#btn-action-delete', function () {
             $('#delete-pet-id').val($(this).attr('data-pet-id'));
+        })
+
+
+        //
+        $("#tbl_pet").on('click', '#btn-action-view', function () {
+            var pet_id = $(this).attr('data-pet-id');
+            $('#tbl_pet_view_history').DataTable().destroy()
+            $('#tbl_pet_view_history').DataTable({
+                ajax:  {
+                    url: '<?= base_url('site/pet/ajaxGetDiagnose') ?>',
+                    type: "POST",
+                    data: {pet_id: pet_id},
+                },
+            })
+
+            $.ajax({
+                url: "<?= base_url('site/pet/ajaxGetPetInfo') ?>", 
+                type: 'post',
+                dataType: "json",
+                data: {pet_id: pet_id},
+                success: function(res) {
+
+                    $('#view-pet-name').html(res.pet_name)
+                    $('#view-pet-species').html(res.pet_type_name)
+                    $('#view-pet-gender').html(res.gender_name)
+                    $('#view-pet-status').html(res.pet_status_name)
+                }
+            })
         })
     })
 

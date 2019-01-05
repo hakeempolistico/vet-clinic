@@ -35,7 +35,7 @@ class Pet extends CI_Controller {
 
             //Flash Data
         	$this->custom_library->flashDataMessage('success', 'Pet Updated', 'Pet information updated');
-        	
+
             redirect('site/pet'); exit;
 		}
 
@@ -50,12 +50,19 @@ class Pet extends CI_Controller {
 
 	}
 
+	public function delete()
+	{
+		$this->global_model->softDelete('pets', $this->input->post());
+        $this->custom_library->flashDataMessage('danger', 'Pet Delete', 'Pet information removed');
+        redirect('site/pet');
+	}
+
 	public function ajaxGetCustPet()
 	{	
 		$res = $this->pet_model->getCustPet($this->session->user_id);
 		$data = array();
 		foreach ($res as $key => $pet) {
-			$data['data'][] = array($key+1, $pet->pet_name, $pet->pet_type_name, $pet->pet_breed, $pet->gender_name, $pet->pet_age, $pet->pet_description, $pet->pet_status_name, '<div class="text-center"><button type="button" class="btn btn-warning" data-toggle="modal" data-target="#pet_view_modal"><i class="mdi mdi-magnify"></i></button> <button id="btn-action-update" type="button" class="btn btn-info" data-toggle="modal" data-target="#pet_form_modal" data-pet-id="'.$pet->pet_id.'"><i class="mdi mdi-grease-pencil"></i></button> <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#confirmation_modal"><i class="mdi mdi-delete"></button></div>' );
+			$data['data'][] = array($key+1, $pet->pet_name, $pet->pet_type_name, $pet->pet_breed, $pet->gender_name, $pet->pet_age, $pet->pet_description, $pet->pet_status_name, '<div class="text-center"><button type="button" class="btn btn-warning" data-toggle="modal" data-target="#pet_view_modal"><i class="mdi mdi-magnify"></i></button> <button id="btn-action-update" type="button" class="btn btn-info" data-toggle="modal" data-target="#pet_form_modal" data-pet-id="'.$pet->pet_id.'"><i class="mdi mdi-grease-pencil"></i></button> <button id="btn-action-delete" type="button" class="btn btn-danger" data-toggle="modal" data-target="#confirmation_modal" data-pet-id="'.$pet->pet_id.'"><i class="mdi mdi-delete"></button></div>' );
 		}
 		echo json_encode($data);
 	}

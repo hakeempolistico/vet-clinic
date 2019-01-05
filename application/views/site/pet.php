@@ -134,6 +134,10 @@
                 }
             });
         })
+
+        $("#tbl_pet").on('click', '#btn-action-delete', function () {
+            $('#delete-pet-id').val($(this).attr('data-pet-id'));
+        })
     })
 
 </script>

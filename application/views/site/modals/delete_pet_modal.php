@@ -14,8 +14,11 @@
                 <p>Do you really want to delete these records? This process cannot be undone.</p>
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-info" data-dismiss="modal">Cancel</button>
-                <button type="button" class="btn btn-danger">Delete</button>
+                <form method="post" action="<?= base_url('site/pet/delete') ?>">
+                    <input id="delete-pet-id" type="hidden" name="pet_id">
+                    <button type="button" class="btn btn-info" data-dismiss="modal">Cancel</button>
+                    <button id="delete-confirm" type="submit" class="btn btn-danger">Delete</button>
+                </form>
             </div>
         </div>
     </div>

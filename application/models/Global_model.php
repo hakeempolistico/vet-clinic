@@ -73,6 +73,13 @@ class Global_model extends CI_Model{
         return FALSE;
     }
 
+    public function softDelete($table, $array)
+    {
+        $this->db->where($array);
+        $this->db->set('is_deleted', 1);
+        return $this->db->update($table);
+    }
+
 }
 
 ?>

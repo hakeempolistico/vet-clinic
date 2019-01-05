@@ -14,21 +14,23 @@ class Global_model extends CI_Model{
         return $this->db->update($table, $data);
     }
 
-    public function getRecords($table, $order_by=null, $set=null)
+    public function getRecords($table, $where=null, $isDeleted=null, $order_by=null, $set=null)
     {
-        if($order_by != null && $set != null)
-        {
-           $this->db->order_by($set, $order_by);
-        }
+        if($order_by != null && $set != null) $this->db->order_by($set, $order_by);
+        if($where) $this->db->where($where['col'], $where['val']);
+        if($isDeleted) $this->db->where('is_deleted', $isDeleted);
+
         $query = $this->db->get($table)->result();
         return $query;
     }
 
-    public function getRow($table, $col, $val, $order_by=null, $set=null)
+    public function getRow($table, $col, $val, $isDeleted=null, $order_by=null, $set=null)
     {
-        if($order_by != null && $set != null)
-        {
+        if($order_by != null && $set != null){
            $this->db->order_by($set, $order_by);
+        }
+        if($isDeleted){
+            $this->db->where('is_deleted', $isDeleted);
         }
         $this->db->where($col, $val);
         $query = $this->db->get($table)->row();

@@ -35,12 +35,13 @@
 
 
         <div class="col-lg-12 col-xlg-12 col-md-12">
+            <?php $this->load->view('site/inc/alert_message'); ?>
             <div class="card">
                 <div class="card-block">
                      
                     <div class="text-right" style="padding: 1rem 0rem ;">
 
-                        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#pet_form_modal">
+                        <button id="btn-register" type="button" class="btn btn-primary" data-toggle="modal" data-target="#pet_form_modal">
                          Register Pet
                         </button>
 
@@ -49,6 +50,7 @@
                     <table id="tbl_pet" class="display" style="width:100%">
                         <thead>
                             <tr>
+                                <th></th>
                                 <th>Name</th>
                                 <th>Species</th>
                                 <th>Breed</th>
@@ -59,36 +61,11 @@
                                 <th class="text-center">Manage</th>
                             </tr>
                         </thead>
-                        <tbody>
-                            <tr>
-                                <th>Name</th>
-                                <th>Species</th>
-                                <th>Breed</th>
-                                <th>Gender</th>
-                                <th>Age</th>
-                                <th>Description</th>
-                                <th>Status</th>
-                                <td>
-                                    <div class="text-center">
-
-                                        <button type="button" class="btn btn-warning" data-toggle="modal" data-target="#pet_view_modal">
-                                         View
-                                        </button>
-
-                                        <button type="button" class="btn btn-info" data-toggle="modal" data-target="#pet_form_modal">
-                                         Update
-                                        </button>
-
-                                        <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#confirmation_modal">
-                                         Delete
-                                        </button>
-
-                                    </div>
-                                </td>
-                            </tr>                           
+                        <tbody>                         
                         </tbody>
                         <tfoot>
                             <tr>
+                                <th></th>
                                 <th>Name</th>
                                 <th>Species</th>
                                 <th>Breed</th>
@@ -111,197 +88,53 @@
     </div>
 </div>
 
-
-
-
-<!-- Start Modal Register Pet-->
-<div class="modal fade" id="pet_form_modal" tabindex="-1" role="dialog" aria-labelledby="register_pet" aria-hidden="true">
-  <div class="modal-dialog" role="document">
-    <form method="post" accept-charset="utf-8">
-        <div class="modal-content">
-          <div class="modal-header">
-            <h5 class="modal-title" id="exampleModalLabel">Pet Form</h5>
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-              <span aria-hidden="true">&times;</span>
-            </button>
-          </div>
-
-          <div class="modal-body">
-                <div class="card">
-                    <div class="card-block">
-                    
-                        <div class="form-group">
-                            <label class="col-md-12 text-primary">Name</label>
-                            <div class="col-md-12">
-                                <input name="fname" type="text" value="" class="form-control form-control-line" required="">
-                            </div>
-                        </div>
-
-                        <div class="form-group">
-                            <label class="col-md-12 text-primary">Species</label>
-                            <div class="col-md-12">
-                                <select name="species" class="form-control form-control-line" required="">
-                                        <option></option>
-                                        <option value="1" selected="">Dog</option>
-                                        <option value="2">Cat</option>
-                                </select>
-                            </div>
-                        </div>
-
-                        <div class="form-group">
-                            <label class="col-md-12 text-primary">Gender</label>
-                            <div class="col-md-12">
-                                <select name="gender_id" class="form-control form-control-line" required="">
-                                        <option></option>
-                                        <option value="1" selected="">Male</option>
-                                        <option value="2">Female</option>
-                                </select>
-                            </div>
-                        </div>
-
-                        <div class="form-group">
-                            <label class="col-md-12 text-primary">Description</label>
-                            <div class="col-md-12">
-                                <textarea name="description" rows="5" class="form-control form-control-line"></textarea>
-                            </div>
-                        </div>
-
-                        <div class="form-group">
-                            <label class="col-md-12 text-primary">Status</label>
-                            <div class="col-md-12">
-                                <select name="status_id" class="form-control form-control-line" required="">
-                                        <option></option>
-                                        <option value="1" selected="">Active</option>
-                                        <option value="2">Inactive</option>
-                                </select>
-                            </div>
-                        </div>
-                            
-                    </div>
-                </div>
-          </div>
-
-          <div class="modal-footer">
-            <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
-            <button type="button" class="btn btn-primary">Register</button>
-          </div>
-
-        </div>
-     </form>
-  </div>
-</div>
-<!-- End Modal Register Pet-->
-
-<!-- Start Modal Confirmation -->
-<div id="confirmation_modal" class="modal fade">
-    <div class="modal-dialog modal-confirm">
-        <div class="modal-content">
-            <div class="modal-header">
-                <div class="icon-box">
-                    <i class="mdi mdi-close"></i>
-                </div>              
-                <h4 class="modal-title">Are you sure?</h4>  
-                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-            </div>
-            <div class="modal-body">
-                <p>Do you really want to delete these records? This process cannot be undone.</p>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-info" data-dismiss="modal">Cancel</button>
-                <button type="button" class="btn btn-danger">Delete</button>
-            </div>
-        </div>
-    </div>
-</div>    
-<!-- End modal confimation -->
-
-<!-- Start View Pet History -->
-<div class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true" id="pet_view_modal">
-  <div class="modal-dialog modal-lg">
-    <div class="modal-content">
-     
-            <div class="modal-content">
-              <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Pet Details</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                  <span aria-hidden="true">&times;</span>
-                </button>
-              </div>
-
-              <div class="modal-body">
-                    <div class="card">
-                        <div class="card-block">
-                            
-                            <div class="row">
-                                <div class="col-lg-6 col-xlg-6 col-md-6 col-sm-12">
-                                    <div class="form-group">
-                                        <label class="col-md-12 text-primary">Name: <span class="text-black lbl-name" >insert pet name</span></label> 
-                                        <label class="col-md-12 text-primary">Species: <span class="text-black lbl-type" >insert pet Species</span></label> 
-                                    </div>
-                                </div>
-
-                                <div class="col-lg-6 col-xlg-6 col-md-6 col-sm-12">
-                                    <div class="form-group">
-                                        <label class="col-md-12 text-primary">Gender: <span class="text-black lbl-gender" >insert pet gender</span></label>  
-                                        <label class="col-md-12 text-primary">Status: <span class="text-black lbl-status" >insert pet status</span></label> 
-                                    </div>   
-                                </div>
-
-                                <h4 class="col-md-12 text-black text-center">Pet History</h4> 
-                               
-                            </div>
-                            
-                            <div class="card">
-                                <div class="card-block">
-
-                                    <table id="tbl_pet_view_history" class="display" style="width:100%">
-                                    <thead>
-                                        <tr>
-                                            <th>Date Chekup</th>
-                                            <th>Diagnose</th>
-                                            <th>Description</th>
-                                            <th>Amount</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <tr>
-                                            <th>Date Chekup</th>
-                                            <th>Diagnose</th>
-                                            <th>Description</th>
-                                            <th>Amount</th>
-                                        </tr>                           
-                                    </tbody>
-                                    <tfoot>
-                                        <tr>
-                                            <th>Date Chekup</th>
-                                            <th>Diagnose</th>
-                                            <th>Description</th>
-                                            <th>Amount</th>
-                                        </tr>
-                                    </tfoot>
-                                </table>
-
-                                </div>
-                            </div>
-                                                     
-                                
-                        </div>
-                    </div>
-              </div>
-
-              <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-              </div>
-
-            </div>
-    </div>
-  </div>
-</div>
-
-<!-- End  View Pet History -->
-
-
-
+<?php $this->load->view('site/modals/register_pet_modal') ?>
+<?php $this->load->view('site/modals/delete_pet_modal') ?>
+<?php $this->load->view('site/modals/view_pet_modal') ?>
 
 <!-- include footer -->
-<!-- <?php include 'footer.php';?>
+<!-- <?php include 'footer.php';?> -->
+
+<script>
+    
+    $(function () {
+
+        //DataTable
+        $('#tbl_pet').DataTable({
+            "ajax":  '<?= base_url('site/pet/ajaxGetCustPet') ?>',
+        })
+
+        //
+        $('#btn-register').on('click', function(){
+            $('#btn-register-confirm').val('')
+            $('#form-register input').val('')
+            $('#form-register select').val('').change()
+            $('#form-register textarea').val('').change()
+        })
+
+        //
+        $("#tbl_pet").on('click', '#btn-action-update', function () {
+            var pet_id = $(this).attr('data-pet-id');
+            $('#btn-register-confirm').val(pet_id)
+
+            $.ajax({
+                url: "<?= base_url('site/pet/ajaxGetPetInfo') ?>", 
+                type: 'post',
+                dataType: "json",
+                data: {pet_id: pet_id},
+                success: function(res) {
+                    console.log(res)
+                    $('#reg-pet-name').val(res.pet_name)
+                    $('#reg-species').val(res.pet_type_id).change()
+                    $('#reg-pet-breed').val(res.pet_breed)
+                    $('#reg-pet-age').val(res.pet_age)
+                    $('#reg-pet-description').val(res.pet_description)
+                    $('#reg-gender').val(res.gender_id).change()
+                    $('#reg-pet-status').val(res.pet_status_id).change()
+                }
+            });
+        })
+    })
+
+</script>
+

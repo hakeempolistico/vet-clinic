@@ -45,7 +45,7 @@
     $(function () {
       //DataTable
       $('.DataTable').DataTable({
-        "ajax":  '<?= base_url('admin/customers/ajaxGetCustomers') ?>',
+        "ajax":  '<?= base_url('admin/customers/ajaxGetCustPet') ?>',
           
       })
 

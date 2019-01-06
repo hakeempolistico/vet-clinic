@@ -15,7 +15,7 @@ class Pet_model extends CI_Model{
         $this->db->where('user_id', $user_id);
         $this->db->where('is_deleted', 0);
         
-        if($pet_id){
+        if($pet_id){ 
             $this->db->where('pet_id', $pet_id);
             $row = $this->db->get()->row();
             return $row;

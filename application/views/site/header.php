@@ -12,7 +12,9 @@
     <!-- <link rel="icon" type="image/png" sizes="16x16" href="<?= base_url('assets/site/') ?>/images/favicon.png"> -->
     <title></title>
     <!-- Bootstrap Core CSS -->
-    <link href="<?= base_url('assets/site/plugins/bootstrap/css/bootstrap.min.css') ?>" rel="stylesheet">   
+    
+    <link href="<?= base_url('assets/site/plugins/bootstrap/css/bootstrap.min.css') ?>" rel="stylesheet">  
+
     <!-- Custom CSS -->
     <link href="<?= base_url('assets/site/css/style-v1.css') ?>" rel="stylesheet">
     <!-- You can change the theme colors from here -->
@@ -22,14 +24,20 @@
     <link href="<?= base_url('assets/site/') ?>plugins/datatables/jquery.dataTables.min.css " rel="stylesheet">
      <!-- full calendar -->
      <link href="<?= base_url('assets/site/') ?>plugins/full-calendar/fullcalendar.css " rel="stylesheet">
-     <link href="<?= base_url('assets/site/') ?>plugins/full-calendar/fullcalendar.print.css " rel="stylesheet">
+
+    <!-- date range -->
+    <link rel="stylesheet" href="<?= base_url('assets/adminlte/') ?>bower_components/bootstrap-daterangepicker/daterangepicker.css">
+    <!-- bootstrap datepicker -->
+    <link rel="stylesheet" href="<?= base_url('assets/adminlte/') ?>bower_components/bootstrap-datepicker/dist/css/bootstrap-datepicker.min.css">
+    <!-- Bootstrap time Picker -->
+    <link rel="stylesheet" href="<?= base_url('assets/adminlte/') ?>plugins/timepicker/bootstrap-timepicker.min.css">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="<?= base_url('assets/adminlte/') ?>bower_components/font-awesome/css/font-awesome.min.css">
+    <!-- Ionicons -->
+    <link rel="stylesheet" href="<?= base_url('assets/adminlte/') ?>bower_components/Ionicons/css/ionicons.min.css">
+
     <!-- file css -->
-    <link href="<?= base_url('assets/site/css/') ?><?= basename(parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH)); ?>.css"></script>
-    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-    <!--[if lt IE 9]>
-    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-    <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-<![endif]-->
+    <link href="<?= base_url('assets/site/modules/css/') ?><?= basename(parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH)); ?>.css"></script>
+
 
 </head>

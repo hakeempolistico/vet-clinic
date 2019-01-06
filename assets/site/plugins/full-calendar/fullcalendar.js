@@ -3988,7 +3988,7 @@ function AgendaEventRenderer() {
 				skinCss +
 				"'" +
 			">" +
-			"<div class='fc-event-inner'>" +
+			"<div class='fc-event-inner' dasdas>" +
 			"<div class='fc-event-time'>" +
 			htmlEscape(formatDates(event.start, event.end, opt('timeFormat'))) +
 			"</div>" +
@@ -5349,7 +5349,8 @@ function DayEventRenderer() {
 				"left:" + segment.left + "px;" +
 				skinCss +
 				"'" +
-			">" +
+			" data-id = '"+ +"'>" +
+			// dito
 			"<div class='fc-event-inner'>";
 		if (!event.allDay && segment.isStart) {
 			html +=

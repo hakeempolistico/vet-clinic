@@ -20,6 +20,7 @@
     <!-- All Jquery -->
     <!-- ============================================================== -->
 
+
     <script src="<?= base_url('assets/site/') ?>plugins/jquery/jquery.min.js"></script>
     <!-- Bootstrap tether Core JavaScript -->
     <script src="<?= base_url('assets/site/') ?>plugins/bootstrap/js/tether.min.js"></script>
@@ -40,8 +41,20 @@
     <script src='<?= base_url('assets/site/') ?>plugins/full-calendar/fullcalendar.js'></script>
     <script src='<?= base_url('assets/site/') ?>plugins/full-calendar/jquery-ui.custom.min.js'></script>
 
-    <!-- file js -->
-    <script src="<?= base_url('assets/site/js/') ?><?= basename(parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH)); ?>.js"></script>
+    <!-- InputMask -->
+    <script src="<?= base_url('assets/adminlte/') ?>plugins/input-mask/jquery.inputmask.js"></script>
+    <script src="<?= base_url('assets/adminlte/') ?>plugins/input-mask/jquery.inputmask.date.extensions.js"></script>
+    <script src="<?= base_url('assets/adminlte/') ?>plugins/input-mask/jquery.inputmask.extensions.js"></script>
+    <!-- date-range-picker -->
+    <script src="<?= base_url('assets/adminlte/') ?>bower_components/moment/min/moment.min.js"></script>
+    <script src="<?= base_url('assets/adminlte/') ?>bower_components/bootstrap-daterangepicker/daterangepicker.js"></script>
+    <!-- bootstrap datepicker -->
+    <script src="<?= base_url('assets/adminlte/') ?>bower_components/bootstrap-datepicker/dist/js/bootstrap-datepicker.min.js"></script>
+    <!-- bootstrap time picker -->
+    <script src="<?= base_url('assets/adminlte/') ?>plugins/timepicker/bootstrap-timepicker.min.js"></script>
+
+     <!-- file js -->
+    <script src="<?= base_url('assets/site/modules/js/') ?><?= basename(parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH)); ?>.js"></script>
 
 </body>
  

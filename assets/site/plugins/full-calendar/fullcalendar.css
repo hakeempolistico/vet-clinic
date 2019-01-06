@@ -281,14 +281,35 @@ html .fc,
     background-color: #f3dcf8;
 }
 .fc-event.info{
-    background-color: #c6ebfe;
+    background-color: #2fa6e3;
 }
 .fc-event.important{
-    background-color: #FFBEBE;
+    background-color: #ff3b30;
 }
 .fc-event.success{
-    background-color: #BEFFBF;
+    background-color: #55d057;
 }
+
+/*color start*/
+
+.fc-event.approved{
+    background-color: #0984e3;
+}
+
+.fc-event.pending{
+    background-color: #fdcb6e;
+}
+
+.fc-event.complete{
+    background-color: #00b894;
+}
+
+.fc-event.cancel{
+    background-color: #d63031;
+}
+
+/*color end*/
+
 .fc-event:hover{
     opacity: 0.7;
 }

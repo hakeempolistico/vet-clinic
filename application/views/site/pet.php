@@ -97,7 +97,7 @@
 
 <script>
     
-    $(function () {
+    $(function () { 
 
         //DataTable
         $('#tbl_pet').DataTable({

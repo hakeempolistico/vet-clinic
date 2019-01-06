@@ -7,7 +7,7 @@ class Profile extends CI_Controller {
 	{
 	    parent::__construct();
 	    $this->custom_session->checkCustomerSession();
-	}
+	} 
 
 	public function index()
 	{

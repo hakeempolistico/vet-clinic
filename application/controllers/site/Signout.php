@@ -6,6 +6,6 @@ class Signout extends CI_Controller {
 	public function index()
 	{
 		$this->session->sess_destroy();
-		redirect('site/landing');
+		redirect('site/signin');
 	}
 }

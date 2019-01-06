@@ -6,7 +6,7 @@ class Schedule extends CI_Controller {
 	public function __construct()
 	{
 	    parent::__construct();
-	    $this->custom_session->checkCustomerSession();
+	    $this->custom_session->checkSession('Customer');
 	}
 
 	public function index()

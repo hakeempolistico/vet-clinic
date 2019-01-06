@@ -14,10 +14,24 @@ class Custom_session {
     public function checkSession($usertype)
     {	
     	if(!isset($this->CI->session->logged_in) && !$this->CI->session->user_type_name == $usertype) {
-			redirect(base_url('site/signin')); exit;
+			redirect('site/signin'); exit;
 		}
 		else
 			return;	
+    }
+
+    public function usertypeRedirect($usertype)
+    {
+    	switch ($usertype) {
+		    case "Admin":
+		        redirect('admin/dashboard');
+		        break;
+		    case "Customer":
+		        redirect('site/dashboard');
+		        break;
+		    default:
+		        redirect('site/signin');
+		}
     }
 
 }

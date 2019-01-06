@@ -22,16 +22,16 @@ class Signin extends CI_Controller {
         		redirect('site/signin');
         	}
         	if(password_verify($data['user_password'], $credentials->user_password)){
+                $usertype = $this->global_model->getUserTypeName($data['user_email']);
         		//Session
                 $userData = array(
                         'logged_in' => TRUE,
                         'user_id' => $this->global_model->getUserId($data['user_email']),
-                        'user_type_name' => $this->global_model->getUserTypeName($data['user_email'])
+                        'user_type_name' => $usertype
                 );
                 $this->session->set_userdata($userData);
-
                 //Redirect
-                redirect('site/dashboard');
+                $this->custom_session->usertypeRedirect($usertype);
         	}
         	else{
                 //Flash Data

@@ -18,51 +18,53 @@ class Signup extends CI_Controller {
 
         if ($this->form_validation->run() == FALSE)
         {
-                $this->load->view('site/signup');
+               $this->load->view('site/signup');
         }
         else
         {		
-		$this->load->model('global_model');
-		$data = $this->input->post();
+			$this->load->model('global_model');
+			$data = $this->input->post();
 
-		$data['user_password'] = password_hash($data['user_password'], PASSWORD_BCRYPT);
-		$data['user_type_id'] = $this->global_model->getUserType('Customer');
-		unset($data['confirm_password']);
+			$data['user_password'] = password_hash($data['user_password'], PASSWORD_BCRYPT);
+			$data['user_type_id'] = $this->global_model->getUserType('Customer');
+			unset($data['confirm_password']);
 
-		$user_data = array(
-			'user_email' => $data['user_email'],
-			'user_password' => $data['user_password'],
-			'user_type_id' => $data['user_type_id']
-		);
+			$user_data = array(
+				'user_email' => $data['user_email'],
+				'user_password' => $data['user_password'],
+				'user_type_id' => $data['user_type_id']
+			);
 
-		$this->global_model->insert('users', $user_data);
-        $user_id = $this->global_model->getUserId($data['user_email']);
+			$this->global_model->insert('users', $user_data);
+	        $user_id = $this->global_model->getUserId($data['user_email']);
 
-		$profile = array(
-			'user_id' => $user_id,
-			'fname' => $data['fname'],
-			'lname' => $data['lname'],
-			'address' => $data['address'],
-			'contact_num' => $data['contact_num']
-		);
+			$profile = array(
+				'user_id' => $user_id,
+				'fname' => $data['fname'],
+				'lname' => $data['lname'],
+				'address' => $data['address'],
+				'contact_num' => $data['contact_num']
+			);
 
-		if($this->global_model->insert('profiles', $profile)){
-                    //Flash Data
-                    $this->session->set_flashdata('alert-type', 'success');
-                    $this->session->set_flashdata('message', 'User Successfuly Registered');
-                    $this->session->set_flashdata('sub-message', 'Please update your profile in Profile Tab');
+			if($this->global_model->insert('profiles', $profile)){
+	            //Flash Data
+	            $this->custom_library->flashDataMessage(
+	            	'success', 
+	            	'User Successfuly Registered', 
+	            	'Please update your profile in Profile Tab'
+	            );
 
-                    //Session
-                    $userData = array(
-                            'logged_in' => TRUE,
-                            'user_id' => $user_id,
-                            'user_type_name' => $this->global_model->getUserTypeName($data['user_email'])
-                    );
-                    $this->session->set_userdata($userData);
+	            //Session
+	            $userData = array(
+	                    'logged_in' => TRUE,
+	                    'user_id' => $user_id,
+	                    'user_type_name' => $this->global_model->getUserTypeName($data['user_email'])
+	            );
+	            $this->session->set_userdata($userData);
 
-                    //Redirect
-                    redirect('site/dashboard');
-                }
+	            //Redirect
+	            redirect('site/dashboard');
+	        }
 
         }
 

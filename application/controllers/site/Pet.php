@@ -21,7 +21,7 @@ class Pet extends CI_Controller {
 		);
 		$this->load->view('site/pet', $data);
 	}
-
+ 
 	public function registerPet() 
 	{
 		$data = $this->input->post();
@@ -61,17 +61,16 @@ class Pet extends CI_Controller {
 	{	
 		$res = $this->pet_model->getCustPet($this->session->user_id);
 		$data = array();
-<<<<<<< HEAD
+
 		
 		if(empty($res)){
 			$data['data'] = [];
 			echo json_encode($data);
 			exit;
 		}
-=======
+
 
 		$this->checkIfEmpty($res, $data);
->>>>>>> a0d9f2521451ec1e852e4f5877abe44d58b01752
 
 		foreach ($res as $key => $pet) {
 			$data['data'][] = array($key+1, $pet->pet_name, $pet->pet_type_name, $pet->pet_breed, $pet->gender_name, $pet->pet_age, $pet->pet_description, $pet->pet_status_name, '<div class="text-center"><button id="btn-action-view" type="button" class="btn btn-warning btn-sm" data-toggle="modal" data-target="#pet_view_modal" data-pet-id="'.$pet->pet_id.'"><i class="mdi mdi-magnify"></i></button> <button id="btn-action-update" type="button" class="btn btn-info btn-sm" data-toggle="modal" data-target="#pet_form_modal" data-pet-id="'.$pet->pet_id.'"><i class="mdi mdi-grease-pencil"></i></button> <button id="btn-action-delete" type="button" class="btn btn-danger btn-sm" data-toggle="modal" data-target="#confirmation_modal" data-pet-id="'.$pet->pet_id.'"><i class="mdi mdi-delete"></button></div>' );
@@ -100,8 +99,7 @@ class Pet extends CI_Controller {
 		echo json_encode($data);
 	}
 
-<<<<<<< HEAD
-=======
+
 	private function checkIfEmpty($res, $data)
 	{
 		if(empty($res)){
@@ -110,5 +108,4 @@ class Pet extends CI_Controller {
 			exit;
 		}
 	}
->>>>>>> a0d9f2521451ec1e852e4f5877abe44d58b01752
 }

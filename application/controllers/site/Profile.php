@@ -6,14 +6,13 @@ class Profile extends CI_Controller {
 	public function __construct()
 	{
 	    parent::__construct();
-<<<<<<< HEAD
+
 	    $this->custom_session->checkCustomerSession();
 	} 
-=======
+
 	    $this->custom_session->checkSession('Customer');
 	}
->>>>>>> a0d9f2521451ec1e852e4f5877abe44d58b01752
-
+ 
 	public function index()
 	{
 		$this->form_validation->set_rules('fname', 'First Name', 'required');

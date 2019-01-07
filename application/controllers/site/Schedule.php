@@ -6,15 +6,15 @@ class Schedule extends CI_Controller {
 	public function __construct()
 	{
 	    parent::__construct();
-<<<<<<< HEAD
+
 	    $this->custom_session->checkCustomerSession();
 	    $this->load->model('site/schedule_model');
 	    $this->load->model('site/pet_model');
-=======
-	    $this->custom_session->checkSession('Customer');
->>>>>>> a0d9f2521451ec1e852e4f5877abe44d58b01752
-	}
 
+	    $this->custom_session->checkSession('Customer');
+
+	}
+ 
 	public function index()
 	{	
 		$data_view = array( 'profile' => $this->global_model->getRow('profiles', 'user_id', $this->session->user_id),

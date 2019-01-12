@@ -7,9 +7,6 @@ class Profile extends CI_Controller {
 	{
 	    parent::__construct();
 
-	    $this->custom_session->checkCustomerSession();
-	} 
-
 	    $this->custom_session->checkSession('Customer');
 	}
  
@@ -30,10 +27,7 @@ class Profile extends CI_Controller {
         {
         	if($this->global_model->update('profiles', 'user_id', $this->session->user_id, $this->input->post())){
 	            //Flash Data
-	            $this->session->set_flashdata('alert-type', 'success');
-	            $this->session->set_flashdata('message', 'Success');
-	            $this->session->set_flashdata('sub-message', 'Successfuly Updated Profile');
-	            
+	            $this->custom_library->flashDataMessage('success', 'Success', 'Successfuly Updated Profile')
         		$this->loadView();
         	}
         }

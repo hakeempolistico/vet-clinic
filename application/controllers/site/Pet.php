@@ -31,20 +31,19 @@ class Pet extends CI_Controller {
 		if($data['form_type']){
 			$pet_id = $data['form_type'];
 			unset($data['form_type']);
-			$this->global_model->update('pets', 'pet_id', $pet_id, $data);
 
-            //Flash Data
-        	$this->custom_library->flashDataMessage('success', 'Pet Updated', 'Pet information updated');
+			($this->global_model->update('pets', 'pet_id', $pet_id, $data)) ?
+				$this->custom_library->flashDataMessage('success', 'Pet Updated', 'Pet information updated'):
+				$this->custom_library->flashDataMessage('danger', 'ERROR', 'Pet update error' );
 
-            redirect('site/pet'); exit;
+            redirect('site/pet');
 		}
 
 		unset($data['form_type']);
-		$this->global_model->insert('pets', $data);
-
-        //Flash Data
-        $this->custom_library->flashDataMessage('success', 'Pet Registered', 'Pet information added');
 		
+		($this->global_model->update('pets', 'pet_id', $pet_id, $data)) ? 
+			$this->custom_library->flashDataMessage('success', 'Pet Updated', 'Pet information updated') : 
+			$this->custom_library->flashDataMessage('danger', 'ERROR', 'Pet update error' );
 
 		redirect('site/pet');
 
@@ -68,7 +67,6 @@ class Pet extends CI_Controller {
 			echo json_encode($data);
 			exit;
 		}
-
 
 		$this->checkIfEmpty($res, $data);
 

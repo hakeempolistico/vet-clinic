@@ -18,7 +18,6 @@ class Customers extends CI_Controller {
 
 	public function updateCustomer()
 	{
-		//$this->custom_library->debug($this->input->post());
 		$data = $this->input->post();
 		$userId = $data['user_id'];
 		unset($data['user_id']);

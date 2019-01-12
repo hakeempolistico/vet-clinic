@@ -39,9 +39,6 @@
                        <div class="form-group">
                             <label>Date:</label>
                             <div class="input-group date">
-                              <div class="input-group-addon">
-                                <i class="fa fa-calendar"></i>
-                              </div>
                               <input type="text" name="date" class="form-control pull-right" id="datepicker">
                             </div>
                              <?php if(form_error('date')): ?>
@@ -54,9 +51,6 @@
                               <label>Time picker:</label>
                               <div class="input-group">
                                 <input type="text" name="time" class="form-control timepicker" >
-                                <div class="input-group-addon">
-                                  <i class="fa fa-clock-o"></i>
-                                </div>
                               </div>
                               <?php if(form_error('time')): ?>
                                     <label class="text-danger"><?= form_error('time'); ?></label>

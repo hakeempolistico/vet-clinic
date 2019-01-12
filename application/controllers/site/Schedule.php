@@ -7,10 +7,8 @@ class Schedule extends CI_Controller {
 	{
 	    parent::__construct();
 
-	    $this->custom_session->checkCustomerSession();
 	    $this->load->model('site/schedule_model');
 	    $this->load->model('site/pet_model');
-
 	    $this->custom_session->checkSession('Customer');
 
 	}

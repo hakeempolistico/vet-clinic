@@ -36,8 +36,6 @@
   <script src="<?= base_url('assets/adminlte/bower_components/fastclick/lib/fastclick.js') ?>"></script>
   <!-- AdminLTE App -->
   <script src="<?= base_url('assets/adminlte/dist/js/adminlte.min.js') ?>"></script>
-  <!-- AdminLTE for demo purposes -->
-  <script src="<?= base_url('assets/adminlte/dist/js/demo.js') ?>"></script>
   <!-- bootstrap datepicker -->
   <script src="<?= base_url('assets/adminlte/bower_components/bootstrap-datepicker/dist/js/bootstrap-datepicker.min.js') ?> "></script>
   <!-- page script -->
@@ -45,9 +43,34 @@
     $(function () {
       //DataTable
       $('.DataTable').DataTable({
-        "ajax":  '<?= base_url('admin/customers/ajaxGetCustPet') ?>',
-          
+        "ajax":  '<?= base_url('admin/customers/ajaxGetCustomers') ?>',
       })
+
+      $("#tbl-customers").on('click', '.btn-cust-update', function () {
+          var cust_id = $(this).attr('data-cust-id')
+          //console.log(cust_id)
+          $('#btn-update-cust-confirm').val(cust_id)
+
+          $.ajax({
+              url: "<?= base_url('admin/customers/ajaxGetCustomerInfo') ?>", 
+              type: 'post',
+              dataType: "json",
+              data: { user_id : cust_id},
+              success: function(res) {
+                var res = res[0];
+                $('#cust-first-name').val(res.fname)
+                $('#cust-middle-name').val(res.mname)
+                $('#cust-last-name').val(res.lname)
+                $('#cust-address').val(res.address)
+                $('#cust-contact-number').val(res.contact_num)
+                $('#cust-birthdate').val(res.birthdate)
+                $('#cust-email').val(res.user_email)
+                $('#cust-gender').val(res.gender_id).change()
+              }
+          })
+
+      })
+
 
       //Date picker
       $('#datepicker').datepicker({
@@ -56,3 +79,6 @@
     })
   </script>
 </head>
+
+<body class="hold-transition skin-blue sidebar-mini">
+<div class="wrapper">

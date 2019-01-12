@@ -67,3 +67,6 @@
   <!-- AdminLTE for demo purposes -->
   <script src="<?= base_url('assets/adminlte/dist/js/demo.js') ?>"></script>
 </head>
+
+<body class="hold-transition skin-blue sidebar-mini">
+<div class="wrapper">

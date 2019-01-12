@@ -31,26 +31,23 @@
         href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
 </head>
 
-
-
-
 <!-- jQuery 3 -->
-<script src="<?= base_url('assets/adminlte/bower_components/jquery/dist/jquery.min.js') ?>"></script>
+<script defer src="<?= base_url('assets/adminlte/bower_components/jquery/dist/jquery.min.js') ?>"></script>
 <!-- Bootstrap 3.3.7 -->
-<script src="<?= base_url('assets/adminlte/bower_components/bootstrap/dist/js/bootstrap.min.js') ?>"></script>
+<script defer src="<?= base_url('assets/adminlte/bower_components/bootstrap/dist/js/bootstrap.min.js') ?>"></script>
 <!-- jQuery UI 1.11.4 -->
-<script src="<?= base_url('assets/adminlte/bower_components/jquery-ui/jquery-ui.min.js') ?>"></script>
+<script defer src="<?= base_url('assets/adminlte/bower_components/jquery-ui/jquery-ui.min.js') ?>"></script>
 <!-- Slimscroll -->
-<script src="<?= base_url('assets/adminlte/bower_components/jquery-slimscroll/jquery.slimscroll.min.js') ?>"></script>
+<script defer src="<?= base_url('assets/adminlte/bower_components/jquery-slimscroll/jquery.slimscroll.min.js') ?>"></script>
 <!-- FastClick -->
-<script src="<?= base_url('assets/adminlte/bower_components/fastclick/lib/fastclick.js') ?>"></script>
+<script defer src="<?= base_url('assets/adminlte/bower_components/fastclick/lib/fastclick.js') ?>"></script>
 <!-- AdminLTE App -->
-<script src="<?= base_url('assets/adminlte/dist/js/adminlte.min.js') ?>"></script>
+<script defer src="<?= base_url('assets/adminlte/dist/js/adminlte.min.js') ?>"></script>
 <!-- AdminLTE for demo purposes -->
-<script src="<?= base_url('assets/adminlte/dist/js/demo.js') ?>"></script>
+<script defer src="<?= base_url('assets/adminlte/dist/js/demo.js') ?>"></script>
 <!-- fullCalendar -->
-<script src="<?= base_url('assets/adminlte/bower_components/moment/moment.js') ?>"></script>
-<script src="<?= base_url('assets/adminlte/bower_components/fullcalendar/dist/fullcalendar.min.js') ?>"></script>
+<script defer src="<?= base_url('assets/adminlte/bower_components/moment/moment.js') ?>"></script>
+<script defer src="<?= base_url('assets/adminlte/bower_components/fullcalendar/dist/fullcalendar.min.js') ?>"></script>
 <!-- Page specific script -->
 <script>
   $(function () {
@@ -213,3 +210,6 @@
     })
   })
 </script>
+
+<body class="hold-transition skin-blue sidebar-mini">
+<div class="wrapper">

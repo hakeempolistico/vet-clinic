@@ -4,8 +4,6 @@
 <!-- header  -->
 <?php $this->load->view('admin/headers/schedules') ?>
 <!-- end -->
-<body class="hold-transition skin-blue sidebar-mini">
-<div class="wrapper">
 
   <!-- topnav -->
   <?php $this->load->view('admin/layouts/topnav') ?>

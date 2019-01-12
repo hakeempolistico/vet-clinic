@@ -4,8 +4,6 @@
 <!-- Headers  -->
 <?php $this->load->view('admin/headers/dashboard') ?>
 <!-- End -->
-<body class="hold-transition skin-blue sidebar-mini">
-<div class="wrapper">
 
   <!-- Topnav -->
   <?php $this->load->view('admin/layouts/topnav') ?>

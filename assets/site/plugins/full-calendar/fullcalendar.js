@@ -5349,7 +5349,7 @@ function DayEventRenderer() {
 				"left:" + segment.left + "px;" +
 				skinCss +
 				"'" +
-			" data-id = '"+ +"'>" +
+			" data-id = '"+ event.id +"'>" +
 			// dito
 			"<div class='fc-event-inner'>";
 		if (!event.allDay && segment.isStart) {

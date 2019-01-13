@@ -53,6 +53,7 @@
             </ul>
             <div class="tab-content">
               <?php $this->load->view('admin/tabs/customers_tab') ?>
+              <?php $this->load->view('admin/tabs/customers_pets_tab') ?>
             </div>
             <!-- /.tab-content -->
           </div>

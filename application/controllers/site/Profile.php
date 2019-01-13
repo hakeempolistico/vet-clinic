@@ -27,7 +27,7 @@ class Profile extends CI_Controller {
         {
         	if($this->global_model->update('profiles', 'user_id', $this->session->user_id, $this->input->post())){
 	            //Flash Data
-	            $this->custom_library->flashDataMessage('success', 'Success', 'Successfuly Updated Profile')
+	            $this->custom_library->flashDataMessage('success', 'Success', 'Successfuly Updated Profile');
         		$this->loadView();
         	}
         }

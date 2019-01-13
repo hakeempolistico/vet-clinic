@@ -41,8 +41,8 @@ class Pet extends CI_Controller {
 
 		unset($data['form_type']);
 		
-		($this->global_model->update('pets', 'pet_id', $pet_id, $data)) ? 
-			$this->custom_library->flashDataMessage('success', 'Pet Updated', 'Pet information updated') : 
+		($this->global_model->insert('pets', $data)) ? 
+			$this->custom_library->flashDataMessage('success', 'Pet Registered', 'Pet information added') : 
 			$this->custom_library->flashDataMessage('danger', 'ERROR', 'Pet update error' );
 
 		redirect('site/pet');

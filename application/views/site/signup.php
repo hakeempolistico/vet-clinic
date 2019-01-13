@@ -60,6 +60,16 @@
                     </div>
 
                     <div class="form-group">
+                        <label for="gender_id" class="text-uppercase">Gender</label>
+                        <select class="form-control" name="gender_id">
+                            <option></option>
+                            <option value="1">Male</option>
+                            <option value="2">Female</option>
+                        </select>
+                        <label class="text-danger"><?= form_error('user_email'); ?></label>
+                    </div>
+
+                    <div class="form-group">
                         <label for="contact_num" class="text-uppercase">Contact Number</label>
                         <input type="number" name="contact_num" value="<?= set_value('contact_num') ?>"  class="form-control" maxlength="11" placeholder="09XXXXXXXXX" required>
                         <label class="text-danger"><?= form_error('contact_num'); ?></label>

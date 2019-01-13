@@ -15,7 +15,7 @@
                 </li>
             </ul>
             <div class="text-center m-t-30">
-                <a href="<?= site_url('site/signout') ?>" class="btn waves-effect waves-light btn-warning "> LOGOUT</a>
+                <a href="<?= site_url('signout') ?>" class="btn waves-effect waves-light btn-warning "> LOGOUT</a>
             </div>
         </nav>
         <!-- End Sidebar navigation -->

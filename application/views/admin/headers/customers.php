@@ -46,35 +46,11 @@
         "ajax":  '<?= base_url('admin/customers/ajaxGetCustomers') ?>',
       })
 
-      $("#tbl-customers").on('click', '.btn-cust-update', function () {
-          var cust_id = $(this).attr('data-cust-id')
-          //console.log(cust_id)
-          $('#btn-update-cust-confirm').val(cust_id)
-
-          $.ajax({
-              url: "<?= base_url('admin/customers/ajaxGetCustomerInfo') ?>", 
-              type: 'post',
-              dataType: "json",
-              data: { user_id : cust_id},
-              success: function(res) {
-                var res = res[0];
-                $('#cust-first-name').val(res.fname)
-                $('#cust-middle-name').val(res.mname)
-                $('#cust-last-name').val(res.lname)
-                $('#cust-address').val(res.address)
-                $('#cust-contact-number').val(res.contact_num)
-                $('#cust-birthdate').val(res.birthdate)
-                $('#cust-email').val(res.user_email)
-                $('#cust-gender').val(res.gender_id).change()
-              }
-          })
-
-      })
-
 
       //Date picker
-      $('#datepicker').datepicker({
-        autoclose: true
+      $('.date-picker').datepicker({
+        autoclose: true,
+        format: 'yyyy-mm-dd'
       })
     })
   </script>

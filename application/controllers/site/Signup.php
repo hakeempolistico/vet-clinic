@@ -25,6 +25,12 @@ class Signup extends CI_Controller {
 			$this->load->model('global_model');
 			$data = $this->input->post();
 
+			if (empty($data)) {
+	        	//Flash Data
+	        	$this->custom_library->flashDataMessage('danger', 'ERROR', 'Registration error. Please fill up form.');
+				redirect('site/signup');
+			}
+
 			$data['user_password'] = password_hash($data['user_password'], PASSWORD_BCRYPT);
 			$data['user_type_id'] = $this->global_model->getUserType('Customer');
 			unset($data['confirm_password']);
@@ -43,10 +49,11 @@ class Signup extends CI_Controller {
 				'fname' => $data['fname'],
 				'lname' => $data['lname'],
 				'address' => $data['address'],
-				'contact_num' => $data['contact_num']
+				'contact_num' => $data['contact_num'],
+				'gender_id' => $data['gender_id']
 			);
 
-			if($this->global_model->insert('profiles', $profile)){
+			if ($this->global_model->insert('profiles', $profile)) {
 	            //Flash Data
 	            $this->custom_library->flashDataMessage(
 	            	'success', 
@@ -61,10 +68,14 @@ class Signup extends CI_Controller {
 	                    'user_type_name' => $this->global_model->getUserTypeName($data['user_email'])
 	            );
 	            $this->session->set_userdata($userData);
-
-	            //Redirect
-	            redirect('site/dashboard');
+	        } else {
+	        	//Flash Data
+	        	$this->custom_library->flashDataMessage('danger', 'ERROR', 'Registration error');
 	        }
+
+
+            //Redirect
+            redirect('site/dashboard');
 
         }
 

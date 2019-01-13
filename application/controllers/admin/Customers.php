@@ -3,6 +3,13 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Customers extends CI_Controller {
 
+	public function __construct()
+	{
+	    parent::__construct();
+	    $this->custom_session->checkSession('Admin');
+		$this->load->model('admin/customers_model');
+	}
+
 	public function index()
 	{
 		$data = array(
@@ -16,6 +23,21 @@ class Customers extends CI_Controller {
 		$this->load->view('admin/pages/customers', $data);
 	}
 
+	public function profile($user_id)
+	{
+		$cust_info = $this->customers_model->getCustRecord($user_id);
+		$data = array(
+			'contentHeader' => array(
+				'contentTitle' => 'Customers',
+				'subContentTitle' => 'View customer profile',
+				'breadCrumbIcon' => 'fa-users',
+				'breadCrumbBase' => 'Customers',
+			),
+			'cust_info' => $cust_info
+		);
+		$this->load->view('admin/pages/customer_profile', $data);
+	}
+
 	public function updateCustomer()
 	{
 		$data = $this->input->post();
@@ -27,23 +49,21 @@ class Customers extends CI_Controller {
 		} else {
 			$this->custom_library->flashDataMessage('danger', 'UPDATE ERROR', 'Customer information update error');
 		}
-		redirect('admin/customers');
+		redirect('admin/customers/profile/'.$userId);
 	}
 
 	public function ajaxGetCustomers()
 	{	
-		$this->load->model('admin/customers_model');
 		$res = $this->customers_model->getCustRecords();
 		$data = array();
 		foreach ($res as $key => $cust) {
-			$data['data'][] = array($key+1, $cust->fname.' '.$cust->lname, $cust->address, $cust->gender_name, $cust->contact_num, $cust->birthdate, '<button type="button" class="btn btn-info btn-sm btn-cust-update" data-toggle="modal" data-target="#modal-edit" data-cust-id="'.$cust->user_id.'" ><i class="fa fa-fw fa-edit"></i></button> <button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#modal-pets"><i class="fa fa-fw fa-paw"></i></button>');
+			$data['data'][] = array($key+1, $cust->fname.' '.$cust->lname, $cust->address, $cust->gender_name, $cust->contact_num, $cust->birthdate, '<a type="button" class="btn btn-info btn-sm btn-cust-update" href="'.site_url('admin/customers/profile/').$cust->user_id.'" ><i class="fa fa-fw fa-edit"></i></a>');
 		}
 		echo json_encode($data);
 	}
 
 	public function ajaxGetCustomerInfo()
 	{	
-		$this->load->model('admin/customers_model');
 		$res = $this->customers_model->getCustRecord($this->input->post('user_id'));
 		$data = array();
 		/*foreach ($res as $key => $cust) {

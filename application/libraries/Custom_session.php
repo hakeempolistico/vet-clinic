@@ -14,7 +14,7 @@ class Custom_session {
     public function checkSession($usertype)
     {	
     	if(!isset($this->CI->session->logged_in) && !$this->CI->session->user_type_name == $usertype) {
-			redirect('site/signin'); exit;
+			redirect('site/signin');
 		}
 		else
 			return;	
@@ -32,6 +32,15 @@ class Custom_session {
 		    default:
 		        redirect('site/signin');
 		}
+    }
+
+    public function flashDataMessage($type, $message, $sub){
+    	if (!$type || !$message) {
+    		return FALSE;
+    	}
+        $this->CI->session->set_flashdata('alert-type', $type);
+        $this->CI->session->set_flashdata('message', $message);
+        $this->CI->session->set_flashdata('sub-message', $sub);
     }
 
 }

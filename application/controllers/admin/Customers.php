@@ -26,6 +26,10 @@ class Customers extends CI_Controller {
 	public function profile($user_id)
 	{
 		$cust_info = $this->customers_model->getCustRecord($user_id);
+		if (empty($cust_info)) {
+			$this->custom_session->flashDataMessage('danger', 'ERROR', 'Customer information not found');
+			redirect('admin/customers');
+		}
 		$data = array(
 			'contentHeader' => array(
 				'contentTitle' => 'Customers',
@@ -70,6 +74,16 @@ class Customers extends CI_Controller {
 			$data['data'][] = array($key+1, $cust->fname.' '.$cust->lname, $cust->address, $cust->gender_name, $cust->contact_num, $cust->birthdate, '<button type="button" class="btn btn-info btn-sm btn-cust-update" data-toggle="modal" data-target="#modal-edit" data-cust-id="'.$cust->user_id.'" ><i class="fa fa-fw fa-edit"></i></button> <button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#modal-pets"><i class="fa fa-fw fa-paw"></i></button>');
 		}*/
 		echo json_encode($res);
+	}
+
+	public function softDeleteCust()
+	{
+		if ($this->global_model->softDelete('users', $this->input->post())) {
+			$this->custom_library->flashDataMessage('danger', 'DELETE SUCCESS', 'Customer information successfully deleted');
+		} else {
+			$this->custom_library->flashDataMessage('danger', 'UPDATE ERROR', 'Customer information delete error');
+		}
+		redirect('admin/customers/');
 	}
 		
 }

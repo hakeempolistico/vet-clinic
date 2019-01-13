@@ -16,6 +16,7 @@ class Customers_model extends CI_Model{
         $this->db->join('gender', 'gender.gender_id = profiles.gender_id');
         $this->db->join('user_types', 'user_types.user_type_id = users.user_type_id');
         $this->db->where('user_type_name', 'Customer');
+        $this->db->where('users.is_deleted', 0);
         $res = $this->db->get()->result();
         return $res;
     }
@@ -29,6 +30,7 @@ class Customers_model extends CI_Model{
         $this->db->join('user_types', 'user_types.user_type_id = users.user_type_id');
         $this->db->where('user_type_name', 'Customer');
         $this->db->where('profiles.user_id', $id);
+        $this->db->where('users.is_deleted', 0);
         $res = $this->db->get()->row();
         return $res;
     }

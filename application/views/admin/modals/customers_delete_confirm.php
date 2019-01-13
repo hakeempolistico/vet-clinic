@@ -18,7 +18,9 @@
       <div class="modal-footer">
         <button type="button" class="btn btn-default pull-left btn-sm" data-dismiss="modal">Close</button>
 
-        <button type="button" class="btn btn-danger btn-sm">Confirm</button>
+        <?php echo form_open(site_url('admin/customers/softDeleteCust')); ?>
+          <button type="submit" class="btn btn-danger btn-sm" name="user_id" value="<?= $cust_info->user_id ?>">Confirm</button>
+        </form>
       </div>
     </div>
     <!-- /.modal-content -->

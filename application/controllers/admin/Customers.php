@@ -25,11 +25,17 @@ class Customers extends CI_Controller {
 
 	public function profile($user_id)
 	{
+		//Get customers information
 		$cust_info = $this->customers_model->getCustRecord($user_id);
 		if (empty($cust_info)) {
 			$this->custom_session->flashDataMessage('danger', 'ERROR', 'Customer information not found');
 			redirect('admin/customers');
 		}
+
+		//Get list of pets
+		$pets = $this->customers_model->getPetsInfo($user_id);
+
+		//Data passed to view
 		$data = array(
 			'contentHeader' => array(
 				'contentTitle' => 'Customers',
@@ -37,7 +43,8 @@ class Customers extends CI_Controller {
 				'breadCrumbIcon' => 'fa-users',
 				'breadCrumbBase' => 'Customers',
 			),
-			'cust_info' => $cust_info
+			'cust_info' => $cust_info,
+			'pets' => $pets
 		);
 		$this->load->view('admin/pages/customer_profile', $data);
 	}

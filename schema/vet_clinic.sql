@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 13, 2019 at 05:06 AM
+-- Generation Time: Jan 14, 2019 at 01:06 PM
 -- Server version: 10.1.32-MariaDB
 -- PHP Version: 7.2.5
 
@@ -139,7 +139,7 @@ CREATE TABLE `pets` (
 
 INSERT INTO `pets` (`pet_id`, `user_id`, `pet_name`, `pet_breed`, `pet_age`, `gender_id`, `pet_description`, `pet_type_id`, `pet_status_id`, `is_deleted`, `created_at`) VALUES
 (2, 1, 'Mushi', 'K9', 5, '1', 'asd', 1, 1, 0, '2019-01-06 03:59:57'),
-(3, 2, 'DogCat', 'Dobberdog', 2, '1', 'asd', 1, 1, 0, '2019-01-13 03:15:34');
+(3, 2, 'Cat', 'Siamese', 2, '1', 'Siamese kitten', 2, 1, 0, '2019-01-13 03:15:34');
 
 -- --------------------------------------------------------
 
@@ -195,7 +195,6 @@ CREATE TABLE `profiles` (
   `gender_id` varchar(255) DEFAULT NULL,
   `contact_num` varchar(16) DEFAULT NULL,
   `birthdate` date DEFAULT NULL,
-  `is_deleted` int(1) NOT NULL DEFAULT '0',
   `details_modified` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -203,15 +202,15 @@ CREATE TABLE `profiles` (
 -- Dumping data for table `profiles`
 --
 
-INSERT INTO `profiles` (`profile_id`, `user_id`, `fname`, `mname`, `lname`, `address`, `gender_id`, `contact_num`, `birthdate`, `is_deleted`, `details_modified`) VALUES
-(1, 1, 'Kim Arvin', 'Antonio', 'Toledo', 'Panapaan', '1', '09757842616', NULL, 0, '2019-01-06 11:47:33'),
-(2, 2, 'Hakeem', 'Andaya', 'Polistico', 'Maliksi II, Bacoor City, Cavite', '1', '09558874822', '1994-07-22', 0, '2019-01-13 11:02:43'),
-(3, 3, 'Hakeem', NULL, 'Polistico', 'Maliksi II, Bacoor City, Cavite', '1', '09558874822', NULL, 0, '2019-01-13 11:03:41'),
-(4, 4, 'asd', NULL, 'asd', 'asdfasdfsdfa', '2', '09558874822', NULL, 0, '2019-01-13 11:18:13'),
-(5, 5, 'Hakeem', NULL, 'Polistico', 'ASPODASUDASO', '1', '09558874822', NULL, 0, '2019-01-13 11:24:15'),
-(6, 6, 'asdasdas', NULL, 'asdasda', 'asdfasdfas', '2', '09558874822', NULL, 0, '2019-01-13 11:35:53'),
-(7, 7, 'aaa', NULL, 'aaa', 'asdfasdfa', '1', '09558874822', NULL, 0, '2019-01-13 11:37:00'),
-(8, 8, 'qwe', NULL, 'qwe', 'asdfasdf', '1', '09558874822', NULL, 0, '2019-01-13 11:39:22');
+INSERT INTO `profiles` (`profile_id`, `user_id`, `fname`, `mname`, `lname`, `address`, `gender_id`, `contact_num`, `birthdate`, `details_modified`) VALUES
+(1, 1, 'Kim Arvin', 'Antonio', 'Toledo', 'Panapaan', '1', '09757842616', NULL, '2019-01-06 11:47:33'),
+(2, 2, 'Hakeem', 'Andaya', 'Polistico', 'Maliksi II, Bacoor City, Cavite', '1', '09558874822', '1994-07-22', '2019-01-13 11:02:43'),
+(3, 3, 'Hakeem', NULL, 'Polistico', 'Maliksi II, Bacoor City, Cavite', '1', '09558874822', NULL, '2019-01-13 11:03:41'),
+(4, 4, 'asd', NULL, 'asd', 'asdfasdfsdfa', '2', '09558874822', NULL, '2019-01-13 11:18:13'),
+(5, 5, 'Hakeem', NULL, 'Polistico', 'ASPODASUDASO', '1', '09558874822', NULL, '2019-01-13 11:24:15'),
+(6, 6, 'asdasdas', NULL, 'asdasda', 'asdfasdfas', '2', '09558874822', NULL, '2019-01-13 11:35:53'),
+(7, 7, 'aaa', NULL, 'aaa', 'asdfasdfa', '1', '09558874822', NULL, '2019-01-13 11:37:00'),
+(8, 8, 'qwe', NULL, 'qwe', 'asdfasdf', '1', '09558874822', NULL, '2019-01-13 11:39:22');
 
 -- --------------------------------------------------------
 
@@ -281,6 +280,7 @@ CREATE TABLE `users` (
   `user_email` varchar(250) DEFAULT NULL,
   `user_password` varchar(250) DEFAULT NULL,
   `user_type_id` int(11) DEFAULT NULL,
+  `is_deleted` int(1) DEFAULT '0',
   `user_details_modified` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -288,15 +288,15 @@ CREATE TABLE `users` (
 -- Dumping data for table `users`
 --
 
-INSERT INTO `users` (`user_id`, `user_email`, `user_password`, `user_type_id`, `user_details_modified`) VALUES
-(1, 'kma.toledo@gmail.com', '$2y$10$I6Wk9j7nsSvx9K.Bik46wuudys0fZLfq5tlpYidrjeTMBKhkm/sk.', 1, '2019-01-06 11:47:33'),
-(2, 'customer@example.com', '$2y$10$p3yydSJFg/sNURaRxdkEmOO2ytni32SMkUSB/Cgb478TmBSa8pVDi', 2, '2019-01-13 11:02:43'),
-(3, 'admin@example.com', '$2y$10$5PwvF1lSvbPJP3tA1ltDQufXf32/ygXjN/XmFNx29Ft5txUF3hZ7m', 1, '2019-01-13 11:03:41'),
-(4, 'asd@example.com', '$2y$10$1Q0aBkPvnw0HzTzOhRcrd.X4E7dY6fAbmQlkfikQntBgs97tybKeC', 2, '2019-01-13 11:18:13'),
-(5, 'another@example.com', '$2y$10$WYgFFuAlGY8ILroiaB8La.FnakptxXReyevu0Nzz/iieHusvGEkuK', 2, '2019-01-13 11:24:15'),
-(6, 'asdasdas@example.com', '$2y$10$hmDPkxwUTyk4YJBC2Qo5uOPcQOasiOvxmb0cRp7baXYZi7Vtcciv2', 2, '2019-01-13 11:35:53'),
-(7, 'aaa@example.com', '$2y$10$7gLaW3FjBnYexfHgkM2pkOL5CuMByq5HLgo1Od/h1IGrbIZ67aeBi', 2, '2019-01-13 11:37:00'),
-(8, 'qwe@example.com', '$2y$10$6uf1tWY9MgW2z3hMheKyV.Er10QG0plC7ohCHGAkLpbxuuL8gYv32', 2, '2019-01-13 11:39:22');
+INSERT INTO `users` (`user_id`, `user_email`, `user_password`, `user_type_id`, `is_deleted`, `user_details_modified`) VALUES
+(1, 'kma.toledo@gmail.com', '$2y$10$I6Wk9j7nsSvx9K.Bik46wuudys0fZLfq5tlpYidrjeTMBKhkm/sk.', 1, 0, '2019-01-06 11:47:33'),
+(2, 'customer@example.com', '$2y$10$p3yydSJFg/sNURaRxdkEmOO2ytni32SMkUSB/Cgb478TmBSa8pVDi', 2, 0, '2019-01-13 11:02:43'),
+(3, 'admin@example.com', '$2y$10$5PwvF1lSvbPJP3tA1ltDQufXf32/ygXjN/XmFNx29Ft5txUF3hZ7m', 1, 0, '2019-01-13 11:03:41'),
+(4, 'asd@example.com', '$2y$10$1Q0aBkPvnw0HzTzOhRcrd.X4E7dY6fAbmQlkfikQntBgs97tybKeC', 2, 0, '2019-01-13 11:18:13'),
+(5, 'another@example.com', '$2y$10$WYgFFuAlGY8ILroiaB8La.FnakptxXReyevu0Nzz/iieHusvGEkuK', 2, 0, '2019-01-13 11:24:15'),
+(6, 'asdasdas@example.com', '$2y$10$hmDPkxwUTyk4YJBC2Qo5uOPcQOasiOvxmb0cRp7baXYZi7Vtcciv2', 2, 1, '2019-01-13 11:35:53'),
+(7, 'aaa@example.com', '$2y$10$7gLaW3FjBnYexfHgkM2pkOL5CuMByq5HLgo1Od/h1IGrbIZ67aeBi', 2, 0, '2019-01-13 11:37:00'),
+(8, 'qwe@example.com', '$2y$10$6uf1tWY9MgW2z3hMheKyV.Er10QG0plC7ohCHGAkLpbxuuL8gYv32', 2, 0, '2019-01-13 11:39:22');
 
 -- --------------------------------------------------------
 

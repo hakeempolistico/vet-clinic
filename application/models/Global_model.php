@@ -12,7 +12,7 @@ class Global_model extends CI_Model{
     {
         $this->db->where($col, $val);
         return $this->db->update($table, $data);
-    }
+    } 
 
     public function getRecords($table, $where=null, $isDeleted=null, $order_by=null, $set=null)
     {

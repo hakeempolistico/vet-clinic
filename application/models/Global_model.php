@@ -83,6 +83,15 @@ class Global_model extends CI_Model{
         return $this->db->update($table);
     }
 
+    public function count($table, $where=null)
+    {
+        if($where) $this->db->where($where);
+        $this->db->where('is_deleted', 0);
+
+        $res = $this->db->get($table)->num_rows();
+        return $res;
+    }
+
 }
 
 ?>

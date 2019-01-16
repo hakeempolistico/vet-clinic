@@ -1,6 +1,8 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <link rel="shortcut icon" href="<?= base_url('assets/img/favicon.ico') ?>" type="image/x-icon">
+  <link rel="icon" href="<?= base_url('assets/img/favicon.ico') ?>" type="image/x-icon">
   <title>Admin | 
     <?php switch ($page) {
       case 'customers_profile':

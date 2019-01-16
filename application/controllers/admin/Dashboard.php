@@ -11,6 +11,7 @@ class Dashboard extends CI_Controller {
 
 	public function index()
 	{
+		$custUserTypeId = $this->global_model->getRow('user_types', 'user_type_name', 'Customer')->user_type_id;
 		$data = array(
 			'contentHeader' => array(
 				'contentTitle' => 'Dashboard',
@@ -19,6 +20,7 @@ class Dashboard extends CI_Controller {
 				'breadCrumbBase' => 'Dashboard',
 			),
 			'page' => 'dashboard',
+			'customerCount' => $this->global_model->count('users', array('user_type_id' => $custUserTypeId)),
 		);
 		$this->load->view('admin/template', $data);
 	}

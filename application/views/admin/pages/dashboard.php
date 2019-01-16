@@ -7,9 +7,9 @@
           <!-- small box -->
           <div class="small-box bg-aqua">
             <div class="inner">
-              <h3>150</h3>
+              <h3><?= $customerCount ?></h3>
 
-              <p>New Orders</p>
+              <p>Customers</p>
             </div>
             <div class="icon">
               <i class="ion ion-bag"></i>
@@ -22,9 +22,9 @@
           <!-- small box -->
           <div class="small-box bg-green">
             <div class="inner">
-              <h3>53<sup style="font-size: 20px">%</sup></h3>
+              <h3>-</h3>
 
-              <p>Bounce Rate</p>
+              <p>Upcoming Schedules</p>
             </div>
             <div class="icon">
               <i class="ion ion-stats-bars"></i>
@@ -37,9 +37,9 @@
           <!-- small box -->
           <div class="small-box bg-yellow">
             <div class="inner">
-              <h3>44</h3>
+              <h3>-</h3>
 
-              <p>User Registrations</p>
+              <p>For Approval</p>
             </div>
             <div class="icon">
               <i class="ion ion-person-add"></i>
@@ -52,9 +52,9 @@
           <!-- small box -->
           <div class="small-box bg-red">
             <div class="inner">
-              <h3>65</h3>
+              <h3>1</h3>
 
-              <p>Unique Visitors</p>
+              <p>Admin</p>
             </div>
             <div class="icon">
               <i class="ion ion-pie-graph"></i>

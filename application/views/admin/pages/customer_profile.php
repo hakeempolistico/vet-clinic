@@ -1,25 +1,3 @@
-<!DOCTYPE html>
-<html>
-
-<!-- header  -->
-<?php $this->load->view('admin/headers/customers') ?>
-<!-- end -->
-  <!-- topnav -->
-  <?php $this->load->view('admin/layouts/topnav') ?>
-  <!-- end -->
-
-  <!-- sidenav -->
-  <?php $this->load->view('admin/layouts/sidenav') ?>
-  <!-- end -->
-
-
-  <!-- Content Wrapper. Contains page content -->
-  <div class="content-wrapper">
-    
-    <?php $this->load->view('admin/inc/alert_message') ?>
-    <?php $this->load->view('admin/layouts/content_header') ?>
-
-    
 
     <!-- Main content -->
     <section class="content">
@@ -66,19 +44,8 @@
     </section>
     <!-- /.content -->
 
+    <!-- Modal -->
+    <?php $this->load->view('admin/modals/customers_delete_confirm') ?>
+    <?php $this->load->view('admin/modals/customers_pet_diagnose') ?>
+    <!-- End Modal -->
 
-  </div>
-  <!-- /.content-wrapper -->
-
-  <!-- footer -->
-  <?php $this->load->view('admin/layouts/footer') ?>
-  <!-- end -->
-  
-</div>
-<!-- ./wrapper -->
-
-<!-- Modal -->
-<?php $this->load->view('admin/modals/customers_delete_confirm') ?>
-<!-- End Modal -->
-</body>
-</html>

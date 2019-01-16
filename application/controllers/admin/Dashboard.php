@@ -17,8 +17,9 @@ class Dashboard extends CI_Controller {
 				'subContentTitle' => 'Control Panel',
 				'breadCrumbIcon' => 'fa-dashboard',
 				'breadCrumbBase' => 'Dashboard',
-			)
+			),
+			'page' => 'dashboard',
 		);
-		$this->load->view('admin/pages/dashboard', $data);
+		$this->load->view('admin/template', $data);
 	}
 }

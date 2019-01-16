@@ -18,9 +18,10 @@ class Customers extends CI_Controller {
 				'subContentTitle' => 'View/manage customer information',
 				'breadCrumbIcon' => 'fa-users',
 				'breadCrumbBase' => 'Customers',
-			)
+			),
+			'page' => 'customers'
 		);
-		$this->load->view('admin/pages/customers', $data);
+		$this->load->view('admin/template', $data);
 	}
 
 	public function profile($user_id)
@@ -44,9 +45,10 @@ class Customers extends CI_Controller {
 				'breadCrumbBase' => 'Customers',
 			),
 			'cust_info' => $cust_info,
-			'pets' => $pets
+			'pets' => $pets,
+			'page' => 'customer_profile'
 		);
-		$this->load->view('admin/pages/customer_profile', $data);
+		$this->load->view('admin/template', $data);
 	}
 
 	public function updateCustomer()

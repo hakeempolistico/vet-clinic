@@ -29,7 +29,11 @@
             <td><?= $pet->gender_name ?></td>
             <td><?= $pet->pet_description ?></td>
             <td><?= $pet->pet_status_name ?></td>
-            <td><button type="button" class="btn btn-block btn-info btn-xs"><i class="fa fa-fw fa-medkit"></i></button></td>
+            <td>
+              <button type="button" class="btn btn-block btn-info btn-xs" data-toggle="modal" data-target="#modal-pet-diagnose">
+                <i class="fa fa-fw fa-medkit"></i>
+              </button>
+            </td>
           </tr>
         <?php endforeach ?>
       </tbody>

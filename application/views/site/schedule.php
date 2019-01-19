@@ -47,8 +47,8 @@
                         </div>
 
                         <div class="form-group">
-                            <label for="subject" class="col-md-12">Subject: </label>
-                            <div class="col-md-12">
+                            <label for="subject">Subject: </label>
+                            <div>
                                 <input type="text" name="subject" class="form-control"  required="">
                             </div>
                             <?php if(form_error('subject')): ?>
@@ -71,8 +71,8 @@
                         </div>
                         
                         <div class="form-group">
-                            <label for="pet_id" class="col-md-12">Pet: </label>
-                            <div class="col-md-12">
+                            <label for="pet_id">Pet: </label>
+                            <div>
                                 <select class="form-control form-control-line"  id="pet_id" name="pet_id"  required="">
                                     <option></option>
                                     <?php foreach ($pet as $pet): ?>

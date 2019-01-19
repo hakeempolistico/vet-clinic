@@ -58,12 +58,13 @@ class Schedule extends CI_Controller {
 
 					//Insert Function 
 					$this->global_model->insert('schedules', $data_insert);
-		
+					$data_insert = '';
 		            //Flash Data
 		            $this->session->set_flashdata('alert-type', 'success');
 		            $this->session->set_flashdata('message', 'Success');
 		            $this->session->set_flashdata('sub-message', 'Successfuly Add Schedule');
-		         
+
+		         	
         		}
 
         		$this->load->view('site/schedule', $data_view); 

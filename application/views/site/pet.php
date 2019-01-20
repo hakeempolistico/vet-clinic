@@ -36,7 +36,7 @@
 
         <div class="col-lg-12 col-xlg-12 col-md-12">
             <?php $this->load->view('site/inc/alert_message'); ?>
-            <div class="card">
+            <div class="card"> 
                 <div class="card-block">
                      
                     <div class="text-right" style="padding: 1rem 0rem ;">

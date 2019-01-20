@@ -36,16 +36,14 @@ class Schedule extends CI_Controller {
 				$newDate = date("Y-m-d", strtotime($originalDate)); 
 
 				//Change format of time
-				$originalTime = $data_insert['time'];
-				$newTime  = date("H:i", strtotime($originalTime));
+				// $originalTime = $data_insert['time'];
+				// $newTime  = date("H:i", strtotime($originalTime));
 
 				//Final Date Format 
-				$data_insert['date_time'] = $newDate.' '.$newTime;
-				
+				$data_insert['date_time'] = $newDate.' '.$data_insert['time'];
+				$data_insert['date'] = $newDate;
 				// Unset data
-				unset($data_insert['form_type'],
-					  $data_insert['date'],
-					  $data_insert['time']);
+				unset($data_insert['form_type']);
 
 
         		if($this->global_model->insert('schedules', $data_insert)){
@@ -54,7 +52,7 @@ class Schedule extends CI_Controller {
 		            $this->session->set_flashdata('message', 'Success');
 		            $this->session->set_flashdata('sub-message', 'Successfuly Add Schedule');
 
-		         	$this->loadviewSchedule();
+		            redirect('site/schedule');
         		}
 
         }
@@ -69,10 +67,51 @@ class Schedule extends CI_Controller {
 		'user' => $this->global_model->getRow('users', 'user_id', $this->session->user_id), 
 		'calendar' => $this->schedule_model->getCalendarDetails($this->session->user_id)
 		);
-
+		// print_r($data_view['time']);
 		$this->load->view('site/schedule', $data_view);
 
 	}
 
+	public function ajaxGetTimeAvailable(){
+		$aParam = $this->input->post();
+
+		$aParam['date'] = date("Y-m-d", strtotime($aParam['date'])); 
+
+		$res = $this->schedule_model->getTimeScheduleAvailable($aParam);
+		echo json_encode($res);
+	}
+
+	public function ajaxGetListView(){
+		$aParam = $this->input->post();
+		$aParam['id'] = $this->session->user_id;
+
+		$res = $this->schedule_model->getGetListView($aParam);
+		echo json_encode($res);
+	}
+
+	public function ajaxViewSchedulebyID(){
+		$aParam = $this->input->post();
+		$aParam['id'] = $this->session->user_id;
+		$res = $this->schedule_model->viewSchedulebyID($aParam);
+		echo json_encode($res);
+	}
+
+	public function ajaxCancel(){
+		$aParam = $this->input->post();
+		$aParam1['status'] = '4';
+		$res = $this->global_model->update('schedules', 'schedule_id', $aParam['schedule_id'], $aParam1);
+		// $aParam = $this->input->post();
+		// $res = $this->schedule_model->cancelSchedule($aParam);
+		echo json_encode($res);
+	}
+
+	public function ajaxDelete(){
+		$aParam = $this->input->post();
+		$aParam1['is_deleted'] = '1';
+		$res = $this->global_model->update('schedules', 'is_deleted', $aParam['schedule_id'], $aParam1);
+		// $aParam = $this->input->post();
+		// $res = $this->schedule_model->deleteSchedule($aParam);
+		echo json_encode($res);
+	}
 
 }

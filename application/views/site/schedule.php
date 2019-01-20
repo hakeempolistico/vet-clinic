@@ -79,9 +79,6 @@
 
 <script type="text/javascript">
 
-   //DataTable
-    $('#tbl_viewSchedule').DataTable();
-
 
     
      /*  ------------ initialize calendar ----------- */

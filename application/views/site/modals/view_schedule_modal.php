@@ -16,22 +16,21 @@
                     <div class="row">
                         <div class="col-lg-6 col-xlg-6 col-md-6 col-sm-12">
                             <div class="form-group">
-                                <label class="col-md-12 text-primary">Date: <span id="view-pet-name" class="text-black lbl-name" >insert pet name</span></label> 
-                                <label class="col-md-12 text-primary">Subject: <span id="view-pet-species" class="text-black lbl-type" >insert pet Species</span></label> 
-
+                                <label class="col-md-12 text-primary">Schedule: <span id="view-pet-gender" class="text-black lbl-full_date" >insert pet gender</span></label>  
+                                <label class="col-md-12 text-primary">Pet: <span id="view-pet-name" class="text-black lbl-pet_name" >insert pet name</span></label> 
                             </div>
                         </div>
 
                         <div class="col-lg-6 col-xlg-6 col-md-6 col-sm-12">
                             <div class="form-group">
-                                <label class="col-md-12 text-primary">Schedule: <span id="view-pet-gender" class="text-black lbl-gender" >insert pet gender</span></label>  
-                                <label class="col-md-12 text-primary">Status: <span id="view-pet-name" class="text-black lbl-name" >insert pet name</span></label> 
+                                <label class="col-md-12 text-primary">Subject: <span id="view-pet-species" class="text-black lbl-subject" >insert pet Species</span></label> 
+                                <label class="col-md-12 text-primary">Status: <span id="view-pet-name" class="text-black lbl-status_name" >insert pet name</span></label> 
                             </div>   
                         </div>
 
                          <div class="col-lg-6 col-xlg-6 col-md-6 col-sm-12">
                             <div class="form-group">
-                                <label class="col-md-12 text-primary">Description: <span id="view-pet-gender" class="text-black lbl-gender" >insert pet gender</span></label>  
+                                <label class="col-md-12 text-primary">Description: <span id="view-pet-gender" class="text-black lbl-description" >insert pet gender</span></label>  
                               
                             </div>   
                         </div>
@@ -41,9 +40,8 @@
               </div>
 
               <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" id="btn-update">Update</button>
-                <button type="button" class="btn btn-secondary" id="btn-delete">Delete</button>
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-secondary" id="btn-cancel">Cancel Schedule</button>
+                <button type="button" class="btn btn-secondary" id="btn-delete">Delete Schedule</button>
               </div>
 
             </div>

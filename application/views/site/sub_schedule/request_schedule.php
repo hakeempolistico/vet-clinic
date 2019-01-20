@@ -29,7 +29,13 @@
                     <div class="form-group">
                       <label>Time picker:</label>
                       <div class="input-group">
-                        <input type="text" name="time" class="form-control timepicker"  required="">
+                        <!-- <input type="text" name="time" class="form-control timepicker"  required=""> -->
+                        <select class="form-control form-control-line"  id="time" name="time"  onmousedown="if(this.options.length>5){this.size=5;}"  onchange='this.size=0;' onblur="this.size=0;" required="">
+                            <!-- <?php foreach ($time as $time): ?>
+                            <option value="<?= $time->value; ?>"><?= $time->name; ?></option>
+                            <?php endforeach ?>    -->
+                        </select>
+
                       </div>
                       <?php if(form_error('time')): ?>
                             <label class="text-danger"><?= form_error('time'); ?></label>

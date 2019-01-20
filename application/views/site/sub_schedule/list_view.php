@@ -11,7 +11,7 @@
                     <th class="text-center">Manage</th>
                 </tr>
             </thead>
-            <tbody>                         
+            <tbody class="tbl_body_viewSchedule">                         
             </tbody>
             <tfoot>
                 <tr>

@@ -34,8 +34,8 @@
             </span>
           </a>
           <ul class="treeview-menu">
-            <li class="<?= $contentHeader['listView'] == 'list' ? 'active' : '' ?>"><a href="<?= site_url('admin/schedules/list') ?>"><i class="fa fa-circle-o"></i>List</a></li>
-            <li class="<?= $contentHeader['listView'] == 'calendar' ? 'active' : '' ?>"><a href="<?= site_url('admin/schedules/list') ?>"><i class="fa fa-circle-o"></i>Calendar</a></li>
+            <li class="<?= isset($contentHeader['listView']) && $contentHeader['listView'] == 'list' ? 'active' : '' ?>"><a href="<?= site_url('admin/schedules/list') ?>"><i class="fa fa-circle-o"></i>List</a></li>
+            <li class="<?= isset($contentHeader['listView']) && $contentHeader['listView']  == 'calendar' ? 'active' : '' ?>"><a href="<?= site_url('admin/schedules/list') ?>"><i class="fa fa-circle-o"></i>Calendar</a></li>
           </ul>
         </li>
         <li class="<?= $contentHeader['contentTitle'] == 'Approvals' ? 'active' : '' ?>">

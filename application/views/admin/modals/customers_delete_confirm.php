@@ -11,7 +11,7 @@
       <div class="modal-body">
         <div class="row">
           <div class="col-md-12">
-            <h4>Are you sure you want to delete customer? This process cannot be undone.</h4>
+            <h4><i class="fa fa-fw fa-warning text-warning"></i> Are you sure you want to delete customer?</h4>
           </div>
         </div>
       </div>

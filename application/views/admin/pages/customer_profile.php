@@ -49,3 +49,9 @@
     <?php $this->load->view('admin/modals/customers_pet_diagnose') ?>
     <!-- End Modal -->
 
+    <script>
+      //Date picker
+      $('.date-picker').datepicker({
+        autoclose: true
+      })
+    </script>

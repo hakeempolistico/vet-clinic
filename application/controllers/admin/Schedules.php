@@ -9,16 +9,18 @@ class Schedules extends CI_Controller {
 	    $this->custom_session->checkSession('Admin');
 	}
 
-	public function index()
+	public function list()
 	{
 		$data = array(
 			'contentHeader' => array(
 				'contentTitle' => 'Schedules',
-				'subContentTitle' => 'Displayed schedules in calendar',
+				'subContentTitle' => 'Displayed schedules in list view',
 				'breadCrumbIcon' => 'fa-calendar-check-o',
 				'breadCrumbBase' => 'Schedules',
-			)
+				'listView' => 'list',
+			),
+			'page' => 'schedules_list',
 		);
-		$this->load->view('admin/pages/schedules', $data);
+		$this->load->view('admin/template', $data);
 	}
 }

@@ -11,7 +11,7 @@
       <div class="modal-body">
         <div class="row">
           <div class="col-md-12">
-            <table class="table table-striped">
+            <table id="tbl-pet-diagnose" class="table table-striped">
               <thead>
                 <th></th>
                 <th>Diagnose</th>
@@ -20,15 +20,7 @@
                 <th>Date</th>
                 <th>Time</th>
               </thead>
-                <tbody>
-                <tr>
-                  <td><strong>1</strong></td>
-                  <td><strong class="text-danger">Viral infection in the stomach</strong></td>
-                  <td>1 dose of meds per day. 1 dose of meds per day.</td>
-                  <td>This is a temporary treatment. This is a temporary treatment.</td>
-                  <td>Jan 9, 2019</td>
-                  <td>08:14</td>
-                </tr>
+              <tbody>
               </tbody>
             </table>
           </div>

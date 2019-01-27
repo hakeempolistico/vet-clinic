@@ -29,7 +29,7 @@
   <link rel="stylesheet" href="<?= base_url('assets/adminlte/bower_components/bootstrap-datepicker/dist/css/bootstrap-datepicker.min.css') ?>"> 
   <?php endif; ?>
 
-  <?php if ($page == 'customers' || $page == 'schedules_list'): ?> 
+  <?php if ($page == 'customers' || $page == 'schedules_list' || $page == 'approvals'): ?> 
   <!-- DataTables -->
   <link rel="stylesheet" href="<?= base_url('assets/adminlte/bower_components/datatables.net-bs/css/dataTables.bootstrap.min.css') ?>">
   <?php endif ?>
@@ -54,7 +54,7 @@
   <!-- AdminLTE App -->
   <script src="<?= base_url('assets/adminlte/dist/js/adminlte.min.js') ?>"></script>
 
-  <?php if ($page == 'customers' || $page == 'schedules_list'): ?>
+  <?php if ($page == 'customers' || $page == 'schedules_list' || $page == 'approvals'): ?>
   <!-- DataTables -->
   <script src="<?= base_url('assets/adminlte/bower_components/datatables.net/js/jquery.dataTables.min.js') ?>"></script>
   <script src="<?= base_url('assets/adminlte/bower_components/datatables.net-bs/js/dataTables.bootstrap.min.js') ?>"></script>

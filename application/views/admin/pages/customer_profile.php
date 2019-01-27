@@ -54,4 +54,33 @@
       $('.date-picker').datepicker({
         autoclose: true
       })
+
+      //Ajax
+      $('#btn-pet-diagnose').on('click', function(){
+        $.ajax({
+          url: "<?= site_url('admin/customers/ajaxGetDiagnose') ?>", 
+          data: { pet_id: $(this).data('id') },
+          dataType: "json",
+          method: 'POST',
+          success: function(res){
+            console.log(res)
+            var table = $('#tbl-pet-diagnose');
+            table.find('tbody').empty()
+            $.each(res, function( k, v ) {
+              console.log( "Key: " + k + ", Value: " + v.date )
+              table.append(
+                '<tr>'+
+                '<td>'+k+1+'</td>'+
+                '<td><strong class="text-danger">'+v.diagnose_details+'</strong></td>'+
+                '<td>'+v.treatment_details+'</td>'+
+                '<td>'+v.note+'</td>'+
+                '<td>'+v.date+'</td>'+
+                '<td>'+v.time+'</td>'+
+                '</tr>'
+                )
+            })
+
+          }
+        })
+      })
     </script>

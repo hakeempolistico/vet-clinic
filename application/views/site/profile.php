@@ -57,7 +57,7 @@
             <div class="col-lg-8 col-xlg-9 col-md-7">
                 <div class="card">
                     <div class="card-block">
-                        <?php echo form_open(site_url('site/profile')); ?>
+                        <?php echo form_open(site_url('site/profile/updateProfile')); ?>
                             <div class="form-group">
                                 <label class="col-md-12 text-primary">First Name</label>
                                 <div class="col-md-12">

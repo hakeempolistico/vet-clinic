@@ -30,7 +30,7 @@
             <td><?= $pet->pet_description ?></td>
             <td><?= $pet->pet_status_name ?></td>
             <td>
-              <button type="button" class="btn btn-block btn-info btn-xs" data-toggle="modal" data-target="#modal-pet-diagnose">
+              <button id="btn-pet-diagnose" type="button" class="btn btn-block btn-info btn-xs" data-toggle="modal" data-target="#modal-pet-diagnose" data-id="<?= $pet->pet_id ?>">
                 <i class="fa fa-fw fa-medkit"></i>
               </button>
             </td>

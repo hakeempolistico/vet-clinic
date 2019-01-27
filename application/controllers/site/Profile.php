@@ -9,8 +9,17 @@ class Profile extends CI_Controller {
 
 	    $this->custom_session->checkSession('Customer');
 	}
- 
+
 	public function index()
+	{
+		$data = array(
+			'profile' => $this->global_model->getRow('profiles', 'user_id', $this->session->user_id),
+			'user' => $this->global_model->getRow('users', 'user_id', $this->session->user_id)
+		);
+	    $this->load->view('site/profile', $data);
+	}
+ 
+	public function updateProfile()
 	{
 		$this->form_validation->set_rules('fname', 'First Name', 'required');
         $this->form_validation->set_rules('lname', 'Last Name', 'required');
@@ -21,24 +30,16 @@ class Profile extends CI_Controller {
 
         if ($this->form_validation->run() == FALSE)
         {
-        	$this->loadView();
+        	redirect('site/profile');
         }
         else
         {
         	if($this->global_model->update('profiles', 'user_id', $this->session->user_id, $this->input->post())){
 	            //Flash Data
 	            $this->custom_library->flashDataMessage('success', 'Success', 'Successfuly Updated Profile');
-        		$this->loadView();
+        		redirect('site/profile');
+
         	}
         }
-	}
-
-	private function loadView()
-	{
-		$data = array(
-			'profile' => $this->global_model->getRow('profiles', 'user_id', $this->session->user_id),
-			'user' => $this->global_model->getRow('users', 'user_id', $this->session->user_id)
-		);
-	    $this->load->view('site/profile', $data);
 	}
 }

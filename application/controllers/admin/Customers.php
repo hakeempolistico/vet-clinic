@@ -94,5 +94,10 @@ class Customers extends CI_Controller {
 		}
 		redirect('admin/customers/');
 	}
+
+	public function ajaxGetDiagnose(){
+		$res = $this->customers_model->getPetDiagnose($this->input->post('pet_id'));
+		echo json_encode($res);
+	}
 		
 }

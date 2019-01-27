@@ -41,7 +41,7 @@
                 <!-- Profile -->
                 <!-- ============================================================== -->
                 <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle text-muted waves-effect waves-dark" href="" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><img src="<?= base_url('assets/site/') ?>/images/users/1.jpg" alt="user" class="profile-pic m-r-10" /><?= $profile->fname.' '.$profile->lname ?></a>
+                    <a class="nav-link dropdown-toggle text-muted waves-effect waves-dark" href="" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><img src="<?= base_url('assets/site/') ?>/images/users/5.jpg" alt="user" class="profile-pic m-r-10" /><?= $profile->fname.' '.$profile->lname ?></a>
                 </li>
             </ul>
         </div>

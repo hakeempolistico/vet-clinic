@@ -14,6 +14,25 @@ class Schedules_model extends CI_Model{
         return $res;
     }
 
+
+    public function getScheduleCalendar(){
+        $query = $this->db->query("
+            SELECT 
+                *,
+                (CASE
+                    WHEN `status` = '1' THEN 'pending'
+                    WHEN `status` = '2' THEN 'approved'
+                    WHEN `status` = '3' THEN 'chill'
+                    WHEN `status` = '4' THEN 'important'
+                    ELSE 'default'
+                END) AS `color`
+            FROM 
+                `schedules` 
+            WHERE 
+                `is_deleted` = '0'
+            ")->result(); 
+        return $query;
+    }
 }
 
 ?>

@@ -37,7 +37,7 @@
             <li class="<?= isset($contentHeader['listView']) && $contentHeader['listView'] == 'list' ? 'active' : '' ?>"><a href="<?= site_url('admin/schedules/list') ?>"><i class="fa fa-circle-o"></i>List</a></li>
             <li class="<?= isset($contentHeader['listView']) && $contentHeader['listView']  == 'calendar' ? 'active' : '' ?>"><a href="<?= site_url('admin/schedules/calendar') ?>"><i class="fa fa-circle-o"></i>Calendar</a></li>
           </ul>
-        </li>
+        </li> 
         <li class="<?= $contentHeader['contentTitle'] == 'Diagnose' ? 'active' : '' ?>">
           <a href="<?= site_url('admin/diagnose') ?>">
             <i class="fa  fa-medkit"></i><span> Diagnose</span>

@@ -2,24 +2,24 @@
 
 class Schedule_model extends CI_Model{
 
- 	public function getCalendarDetails($id){
+    public function getCalendarDetails($id){
         $query = $this->db->query("
-        	SELECT 
-        		*,
-        		(CASE
-				    WHEN `status` = '1' THEN 'pending'
-				    WHEN `status` = '2' THEN 'approved'
-				    WHEN `status` = '3' THEN 'chill'
-				    WHEN `status` = '4' THEN 'important'
-				    ELSE 'default'
-				END) AS `color`
-        	FROM 
-        		`schedules` 
-        	WHERE 
-        		`user_id` = '".$id."' AND 
+            SELECT 
+                *,
+                (CASE
+                    WHEN `status` = '1' THEN 'pending'
+                    WHEN `status` = '2' THEN 'approved'
+                    WHEN `status` = '3' THEN 'chill'
+                    WHEN `status` = '4' THEN 'important'
+                    ELSE 'default'
+                END) AS `color`
+            FROM 
+                `schedules` 
+            WHERE 
+                `user_id` = '".$id."' AND 
                 `is_deleted` = '0'
 
-        	")->result(); 
+            ")->result(); 
         return $query;
     }
 
@@ -83,23 +83,43 @@ class Schedule_model extends CI_Model{
         return $query;
     }
 
-    // public function cancelSchedule($aParam){
-    //     $query = $this->db->query("
-    //             UPDATE `schedules` SET `status` = '4'
-    //             WHERE 
-    //                 `schedule_id` =  '".$aParam['schedule_id']."' 
-    //         ")->result(); 
-    //     return $query;
-    // }
+    public function viewTop10ApprovedSchedules($aParam){
+        $query = $this->db->query("
+                SELECT `sc`.*, 
+                 (DATE_FORMAT(`sc`.`date_time`, '%b %d,%r'))  as `full_date`, 
+                 (SELECT `pet_name` FROM `pets` 
+                   WHERE  `user_id`  = '".$aParam['id']."' AND 
+                   `pet_id` = `sc`.`pet_id` LIMIT 1) as `pet_name`,
+                (SELECT `name` FROM `schedule_status` 
+                   WHERE 
+                   `id` = `sc`.`status` LIMIT 1) as `status_name`
+                FROM `schedules`  `sc`
+                WHERE `sc`.`user_id`  = '".$aParam['id']."' AND 
+                    `sc`.`is_deleted` = '0' AND 
+                    `sc`.`status` = '2'
+                ORDER BY `sc`.`schedule_id`  DESC
+                LIMIT 10
+            ")->result(); 
+        return $query;
+    }
 
-    //  public function deleteSchedule($aParam){
-    //     $query = $this->db->query("
-    //             UPDATE `schedules` SET `is_deleted` = '1'
-    //             WHERE 
-    //                 `schedule_id` =  '".$aParam['schedule_id']."' 
-    //         ")->_update(); 
-    //     return $query;
-    // }
+    public function cancelSchedule($aParam){
+        $query = $this->db->query("
+                UPDATE `schedules` SET `status` = '4'
+                WHERE 
+                    `schedule_id` =  '".$aParam['schedule_id']."' 
+            "); 
+        return $flag;
+    }
+
+     public function deleteSchedule($aParam){
+        $query = $this->db->query("
+                UPDATE `schedules` SET `is_deleted` = '1'
+                WHERE 
+                    `schedule_id` =  '".$aParam['schedule_id']."' 
+            "); 
+        return $query;
+    }
 }
 
 ?>

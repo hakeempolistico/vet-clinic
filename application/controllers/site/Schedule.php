@@ -89,6 +89,14 @@ class Schedule extends CI_Controller {
 		echo json_encode($res);
 	}
 
+	public function ajaxGetListViewTop10Approved(){
+		$aParam = $this->input->post();
+		$aParam['id'] = $this->session->user_id;
+
+		$res = $this->schedule_model->viewTop10ApprovedSchedules($aParam);
+		echo json_encode($res);
+	}
+
 	public function ajaxViewSchedulebyID(){
 		$aParam = $this->input->post();
 		$aParam['id'] = $this->session->user_id;
@@ -98,19 +106,15 @@ class Schedule extends CI_Controller {
 
 	public function ajaxCancel(){
 		$aParam = $this->input->post();
-		$aParam1['status'] = '4';
-		$res = $this->global_model->update('schedules', 'schedule_id', $aParam['schedule_id'], $aParam1);
-		// $aParam = $this->input->post();
-		// $res = $this->schedule_model->cancelSchedule($aParam);
+		$aParam['status'] = '4';
+		$res = $this->schedule_model->cancelSchedule($aParam);
 		echo json_encode($res);
 	}
 
 	public function ajaxDelete(){
 		$aParam = $this->input->post();
-		$aParam1['is_deleted'] = '1';
-		$res = $this->global_model->update('schedules', 'is_deleted', $aParam['schedule_id'], $aParam1);
-		// $aParam = $this->input->post();
-		// $res = $this->schedule_model->deleteSchedule($aParam);
+		$aParam['is_deleted'] = '1';
+		$res = $this->schedule_model->deleteSchedule($aParam);
 		echo json_encode($res);
 	}
 

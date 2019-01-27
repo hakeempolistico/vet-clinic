@@ -14,7 +14,7 @@ class Global_model extends CI_Model{
         return $this->db->update($table, $data);
     } 
 
-    public function getRecords($table, $where=null, $isDeleted=null, $order_by=null, $set=null)
+    public function getRecords($table, $where=null, $isDeleted=null, $array=null, $order_by=null, $set=null)
     {
         if($order_by != null && $set != null) $this->db->order_by($set, $order_by);
         if($where) $this->db->where($where['col'], $where['val']);

@@ -44,23 +44,10 @@
                 <th>Pet Name</th>
                 <th>Schedule</th>
                 <th>Status</th>
+                <th>Action</th>
               </tr>
             </thead>
             <tbody>
-              <tr>
-                <td><strong>1</strong></td>
-                <td>Kim Arvin Toledo</td>
-                <td>Cookie</td>
-                <td>01/19/2019 - 12:30</td>
-                <td><span class="badge bg-green">approved</span></td>
-              </tr>
-              <tr>
-                <td><strong>2</strong></td>
-                <td>Kim Arvin Toledo</td>
-                <td>Cookie</td>
-                <td>01/20/2019 - 12:30</td>
-                <td><span class="badge bg-yellow">pending</span></td>
-              </tr>
             </tbody>
           </table>
         </div>
@@ -73,8 +60,13 @@
 <!-- /.content -->
 
 
+<!-- Modals -->
+<?php $this->load->view('admin/modals/approvals_approve_confirm') ?>
+<?php $this->load->view('admin/modals/approvals_disapprove_confirm') ?>
+<!-- End Modals -->
+
 <!-- Scripts -->
 <script> 
-  //var ajaxUrl = '<?= base_url('admin/customers/ajaxGetCustomers') ?>';
+  var ajaxUrl = '<?= base_url('admin/schedules/ajaxGetSchedules') ?>';
 </script>
 <script src="<?= base_url('assets/custom_js/admin.schedules.list.js') ?>"></script>

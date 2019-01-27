@@ -17,7 +17,11 @@
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-default pull-left btn-sm" data-dismiss="modal">Close</button>
-        <button type="submit" class="btn btn-primary btn-sm" name="user_id">Confirm</button>
+        <?php echo form_open(site_url('admin/schedules/setSchedStatus')); ?>
+          <input name="schedule_id" type="hidden" value="">
+          <input name="status_name" type="hidden" value="">
+          <button type="submit" class="btn btn-primary btn-sm" name="user_id">Confirm</button>
+        </form>
       </div>
     </div>
     <!-- /.modal-content -->

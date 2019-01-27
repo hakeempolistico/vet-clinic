@@ -2,7 +2,9 @@
 	//DataTable
 	//$('.DataTable').DataTable()
 
-	var	table = $('.DataTable').DataTable()
+	var	table = $('.DataTable').DataTable({
+		ajax: ajaxUrl ,
+	})
 
 	$('#filter-approved').on('click', function(){
 		table.columns().search( '' ).columns(4).search("approved", true, false, true).draw()
@@ -22,5 +24,14 @@
 		table.columns().search( '' ).draw()
 	})
 
+	$(document).on('click', '.btn-approve', function(){
+		$('input[name="schedule_id"]').val($(this).data('schedid'))
+		$('input[name="status_name"]').val('Approved')
+	})
+
+	$(document).on('click', '.btn-reject', function(){
+		$('input[name="schedule_id"]').val($(this).data('schedid'))
+		$('input[name="status_name"]').val('Rejected')
+	})
 
 

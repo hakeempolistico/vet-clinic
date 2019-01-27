@@ -55,7 +55,7 @@ class Customers_model extends CI_Model{
         $this->db->join('schedules', 'schedules.schedule_id = diagnose.schedule_id');
         $this->db->join('schedule_status', 'schedules.status = schedule_status.id');
         $this->db->where('schedules.pet_id', $id);
-        $this->db->where('schedule_status.name', 'Accepted');
+        $this->db->where('schedule_status.name', 'Approved');
         $this->db->where('schedules.is_deleted', 0);
         $res = $this->db->get()->result();
         return $res;

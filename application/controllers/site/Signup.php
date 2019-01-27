@@ -5,9 +5,6 @@ class Signup extends CI_Controller {
 
 	public function index()
 	{
-        $this->load->library('form_validation');
-		$this->load->helper(array('form', 'url'));
-
 		$this->form_validation->set_rules('fname', 'First Name', 'required');
         $this->form_validation->set_rules('lname', 'Last Name', 'required');
         $this->form_validation->set_rules('user_email', 'Email', 'required|valid_email|is_unique[users.user_email]');

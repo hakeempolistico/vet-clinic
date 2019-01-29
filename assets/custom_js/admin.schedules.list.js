@@ -1,11 +1,4 @@
 
-	//DataTable
-	//$('.DataTable').DataTable()
-
-	var	table = $('.DataTable').DataTable({
-		ajax: ajaxUrl ,
-	})
-
 	$('#filter-approved').on('click', function(){
 		table.columns().search( '' ).columns(4).search("approved", true, false, true).draw()
 	})

@@ -79,8 +79,17 @@
 
 <script type="text/javascript">
 
+   
+    // Disabled past dates
+    var date = new Date();
+    date.setDate(date.getDate());
 
-    
+    $('#datepicker').datepicker({ 
+        startDate: date
+    });
+
+
+     
      /*  ------------ initialize calendar ----------- */
 
     var date = new Date();

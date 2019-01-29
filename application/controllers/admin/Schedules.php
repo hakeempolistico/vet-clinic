@@ -63,4 +63,22 @@ class Schedules extends CI_Controller {
 		}
 		
 	}
+
+	public function calendar(){
+		$data = array(
+			'contentHeader' => array(
+				'contentTitle' => 'Schedules',
+				'subContentTitle' => 'Displayed schedules in calendar view',
+				'breadCrumbIcon' => 'fa-calendar-check-o',
+				'breadCrumbBase' => 'Schedules',
+				'listView' => 'calendar',
+			),
+			'page' => 'schedules_caledar',
+		);
+		$this->load->view('admin/template', $data);
+	}
+
+	public function getAllCalendar(){
+		// getScheduleCalendar
+	}
 }

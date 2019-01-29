@@ -49,6 +49,17 @@ function viewSchedulebyID(schedule_id){
 
  $(document).ready(function() {
 
+
+   
+    // Disabled past dates
+    var date = new Date();
+    date.setDate(date.getDate());
+
+    $('#datepicker').datepicker({ 
+        startDate: date
+    });
+
+
     //Load data table 
      loadDataTableListView();
 
@@ -68,7 +79,7 @@ function viewSchedulebyID(schedule_id){
 
   $('#calendar').on( 'click', '.fc-event', function() {
     var id = $(this).attr('data-id');
-    $('#btn-update').attr('data-id', id);
+    $('#btn-cancel').attr('data-id', id);
     $('#btn-delete').attr('data-id', id);
     $('#schedule_view_modal').modal('show');   
     viewSchedulebyID(id);
@@ -77,7 +88,7 @@ function viewSchedulebyID(schedule_id){
   
   $( ".tbl_body_viewSchedule" ).delegate( ".btn-action-view", "click", function() {
     var id = $(this).attr('data-id');
-    $('#btn-update').attr('data-id', id);
+    $('#btn-cancel').attr('data-id', id);
     $('#btn-delete').attr('data-id', id);
     $('#schedule_view_modal').modal('show');  
     viewSchedulebyID(id); 
@@ -154,13 +165,14 @@ $('#datepicker').on('change', function () {
  //Delete
  $("#btn-cancel").click(function(){
      var schedule_id = $(this).attr('data-id');
+     alert(schedule_id);
       $.ajax({
           url: "schedule/ajaxCancel", 
           type: 'post',
           dataType: "json",
           data: {schedule_id: schedule_id},
           success: function(rs) {
-            alert('Successfully Deleted')
+            alert('Successfully Cancel')
           }
     });
   }); 

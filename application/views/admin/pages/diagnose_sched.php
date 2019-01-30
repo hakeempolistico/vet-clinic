@@ -7,7 +7,7 @@
 
       <div class="box box-info">
         <div class="box-header">
-          <h3 class="box-title">Customer Details</h3>
+          <h3 class="box-title"><i class="fa fa-fw fa-user"></i> Customer Details</h3>
         </div>
         <div class="box-body">
           <table id="tbl-pet-diagnose" class="table table-bordered">
@@ -17,11 +17,13 @@
               <th>Schedule Date</th>
             </thead>
             <tbody>
-              <tr>
-                <td>Hakeem Polistico</td>
-                <td>0955-887-4822</td>
-                <td>Jan 29, 2019</td>
-              </tr>
+              <?php foreach($schedules as $customer_details): ?>
+                <tr>
+                  <td><?= $customer_details->fname.' '.$customer_details->lname ?></td>
+                  <td><?= $customer_details->contact_num ?></td>
+                  <td><?= $customer_details->date ?></td>
+                </tr>
+              <?php endforeach; ?>
             </tbody>
           </table>
         </div>
@@ -29,7 +31,7 @@
 
       <div class="box box-info">
         <div class="box-header">
-          <h3 class="box-title">Pet Details</h3>
+          <h3 class="box-title"><i class="fa fa-fw fa-paw"></i> Pet Details</h3>
         </div>
         <div class="box-body">
           <table id="tbl-pet-diagnose" class="table table-bordered">
@@ -42,14 +44,16 @@
               <th>Description</th>
             </thead>
             <tbody>
-              <tr>
-                <td>Cookie</td>
-                <td>Cat</td>
-                <td>Persian</td>
-                <td>5</td>
-                <td>Male</td>
-                <td>Lazy as fuck. Needs diet.</td>
-              </tr>
+              <?php foreach($schedules as $pet_details): ?>
+                <tr>
+                  <td><?= $customer_details->pet_name ?></td>
+                  <td><?= $customer_details->pet_type_name ?></td>
+                  <td><?= $customer_details->pet_breed ?></td>
+                  <td><?= $customer_details->pet_age ?></td>
+                  <td></td>
+                  <td><?= $customer_details->pet_description ?></td>
+                </tr>
+              <?php endforeach; ?>
             </tbody>
           </table>
         </div>
@@ -57,7 +61,7 @@
 
       <div class="box box-danger">
         <div class="box-header">
-          <h3 class="box-title">Diagnose Details</h3>
+          <h3 class="box-title"><i class="fa fa-fw fa-heartbeat"></i> Diagnose Details</h3>
         </div>
         <div class="box-body">
           <table id="tbl-pet-diagnose" class="table table-striped">
@@ -70,14 +74,16 @@
               <th>Time</th>
             </thead>
             <tbody>
-              <tr>
-                <td>1</td>
-                <td>Flea</td>
-                <td>Anti flea shampoo</td>
-                <td>Do not put anything stupid</td>
-                <td>July 29, 2019</td>
-                <td>5:30pm</td>
-              </tr>
+              <?php foreach($diagnose as $key=>$diagnose): ?>
+                <tr>
+                  <td><?= $key+1 ?></td>
+                  <td><strong class="text-danger"><?= $diagnose->diagnose_details ?></strong></td>
+                  <td><?= $diagnose->treatment_details ?></td>
+                  <td><?= $diagnose->note ?></td>
+                  <td><?= DateTime::createFromFormat("Y-m-d H:i:s", $diagnose->created_at)->format("M d, Y"); ?></td>
+                  <td><?= DateTime::createFromFormat("Y-m-d H:i:s", $diagnose->created_at)->format("H:i"); ?></td>
+                </tr>
+              <?php endforeach; ?>
             </tbody>
           </table>
         </div>

@@ -26,6 +26,8 @@ class Diagnose extends CI_Controller {
 
 	public function schedule($id)
 	{
+		$schedule = $this->schedules_model->getSchedule($id);
+		$diagnose = $this->global_model->getRecords('diagnose', array('col'=>'schedule_id', 'val'=>$id));
 		$data = array(
 			'contentHeader' => array(
 				'contentTitle' => 'Diagnose',
@@ -34,6 +36,8 @@ class Diagnose extends CI_Controller {
 				'breadCrumbBase' => 'Diagnose',
 			),
 			'page' => 'diagnose_sched',
+			'schedules' => $schedule,
+			'diagnose' => $diagnose
 		);
 		$this->load->view('admin/template', $data);
 	}

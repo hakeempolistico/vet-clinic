@@ -47,7 +47,7 @@ class Diagnose extends CI_Controller {
 
 	public function ajaxGetSchedule()
 	{
-		$res = $this->schedules_model->getSchedules();
+		$res = $this->schedules_model->getSchedules('Approved');
 		$data = array();
 		foreach ($res as $key => $sched) {
 			$url = site_url('admin/diagnose/schedule/');

@@ -2,7 +2,7 @@
 
 class Schedules_model extends CI_Model{
 
-    public function getSchedules()
+    public function getSchedules($status = null)
     {   
         $this->db->select('*');
         $this->db->from('schedules');
@@ -10,6 +10,11 @@ class Schedules_model extends CI_Model{
         $this->db->join('pets', 'pets.pet_id = schedules.pet_id');
         $this->db->join('schedule_status', 'schedules.status = schedule_status.id');
         $this->db->where('schedules.is_deleted', 0);
+
+        if($status){
+            $this->db->where('schedule_status.name', $status);
+        }
+
         $res = $this->db->get()->result();
         return $res;
     }

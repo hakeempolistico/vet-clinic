@@ -44,14 +44,14 @@
               <th>Description</th>
             </thead>
             <tbody>
-              <?php foreach($schedules as $pet_details): ?>
+              <?php foreach($pet as $info): ?>
                 <tr>
-                  <td><?= $customer_details->pet_name ?></td>
-                  <td><?= $customer_details->pet_type_name ?></td>
-                  <td><?= $customer_details->pet_breed ?></td>
-                  <td><?= $customer_details->pet_age ?></td>
-                  <td></td>
-                  <td><?= $customer_details->pet_description ?></td>
+                  <td><?= $info->pet_name ?></td>
+                  <td><?= $info->pet_type_name ?></td>
+                  <td><?= $info->pet_breed ?></td>
+                  <td><?= $info->pet_age ?></td>
+                  <td><?= $info->gender_name ?></td>
+                  <td><?= $info->pet_description ?></td>
                 </tr>
               <?php endforeach; ?>
             </tbody>

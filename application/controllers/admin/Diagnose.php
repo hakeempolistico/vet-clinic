@@ -8,6 +8,7 @@ class Diagnose extends CI_Controller {
 	    parent::__construct();
 	    $this->custom_session->checkSession('Admin');
 	    $this->load->model('admin/schedules_model');
+	    $this->load->model('admin/pets_model');
 	}
 
 	public function index()
@@ -28,6 +29,7 @@ class Diagnose extends CI_Controller {
 	{
 		$schedule = $this->schedules_model->getSchedule($id);
 		$diagnose = $this->global_model->getRecords('diagnose', array('col'=>'schedule_id', 'val'=>$id));
+		$pet = $this->pets_model->getPet($schedule[0]->pet_id);
 		$data = array(
 			'contentHeader' => array(
 				'contentTitle' => 'Diagnose',
@@ -37,7 +39,8 @@ class Diagnose extends CI_Controller {
 			),
 			'page' => 'diagnose_sched',
 			'schedules' => $schedule,
-			'diagnose' => $diagnose
+			'diagnose' => $diagnose,
+			'pet' => $pet
 		);
 		$this->load->view('admin/template', $data);
 	}

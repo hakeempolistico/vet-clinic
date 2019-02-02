@@ -121,7 +121,7 @@ function viewSchedulebyID(schedule_id){
     $(".div_calendar").removeClass("hide").addClass("show");
     $(".div_ListView").removeClass("show").addClass("hide");
     $(".div_requestSchedule").removeClass("show").addClass("hide");
-  });
+  }); 
 
 
   //Load Time 

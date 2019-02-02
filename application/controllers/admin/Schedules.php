@@ -78,7 +78,37 @@ class Schedules extends CI_Controller {
 		$this->load->view('admin/template', $data);
 	}
 
-	public function getAllCalendar(){
-		// getScheduleCalendar
+
+	public function getCalendarSchedule(){
+		$data = $this->input->post();
+		if (!empty($data) !== false) {
+			switch ($data['status']) {
+				case '0':
+					$res = $this->schedules_model->getAllScheduleCalendar();
+					break;
+				case '1':
+					$res = $this->schedules_model->getApprovedScheduleCalendar();
+					break;
+				case '2':
+					$res = $this->schedules_model->getPendingScheduleCalendar();
+					break;		
+			}
+			echo json_encode($res);
+		}else{
+			echo "something wrong";
+		}
+	}
+
+	public function ajaxViewSchedulebyID(){
+		$aParam = $this->input->post();
+		$aParam['id'] = $this->session->user_id;
+		$res = $this->schedules_model->viewSchedulebyID($aParam);
+		echo json_encode($res);
+	}
+
+	public function updateSchedule(){
+		$aParam = $this->input->post();
+		$res = $this->schedules_model->updateSchedule($aParam); 
+		echo json_encode($res);
 	}
 }

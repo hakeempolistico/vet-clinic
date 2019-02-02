@@ -76,7 +76,6 @@
 <!-- include footer -->
 <?php $this->load->view('site/footer') ?>
 
-
 <script type="text/javascript">
 
    
@@ -183,15 +182,16 @@
         
         events: [
            <?php foreach ($calendar as $event): ?>
-                     {  id: '<?= $event->schedule_id; ?>', 
-                        title: '<?= $event->subject; ?>', 
+                     {  id: '<?= $event->schedule_id; ?>',  
+                        title: '<?= $event->time; ?> <?= $event->subject; ?>', 
                         start: '<?= $event->date_time; ?>', 
                         end:  '<?= $event->date_time; ?>', 
                         allDay: false,
-                        className: 'pending'
+                        className: '<?= $event->color; ?>', 
                      },
             <?php endforeach ?>      
             ],         
     }); 
+
 
 </script>

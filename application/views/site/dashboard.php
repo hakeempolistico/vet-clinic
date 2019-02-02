@@ -220,11 +220,11 @@ td{
         events: [
            <?php foreach ($calendar as $event): ?>
                      {  id: '<?= $event->schedule_id; ?>', 
-                        title: '<?= $event->subject; ?>', 
+                        title: '<?= $event->time; ?><?= $event->subject; ?>', 
                         start: '<?= $event->date_time; ?>', 
                         end:  '<?= $event->date_time; ?>', 
                         allDay: false,
-                        className: 'pending'
+                        className: '<?= $event->color; ?>', 
                      },
             <?php endforeach ?>      
             ],         

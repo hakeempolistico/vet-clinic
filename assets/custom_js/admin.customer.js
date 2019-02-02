@@ -1,10 +1,4 @@
 
-  //DataTable
-  $('.DataTable').DataTable({
-    ajax: ajaxUrl ,
-  })
-
-
   //Date picker
   $('.date-picker').datepicker({
     autoclose: true,

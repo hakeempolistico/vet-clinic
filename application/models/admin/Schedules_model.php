@@ -139,5 +139,22 @@ class Schedules_model extends CI_Model{
             "); 
         return $query;
     }
+    
+    public function getMessageDetails($aParam){
+        $query = $this->db->query("
+        SELECT 
+            `p`.`fname`, 
+            `p`.`contact_num`, 
+            `s`.`date`, 
+            `s`.`time`
+        FROM 
+            `schedules` `s`, 
+            `profiles` `p`
+         WHERE
+                `s`.`schedule_id` = '".$aParam['schedule_id']."' AND 
+            `s`.`user_id` =  `p`.`user_id`
+         ")->row(); 
+        return $query;
+    }
 }
 ?>

@@ -1,4 +1,10 @@
 <?php
+require 'Send_sms/autoload.php';
+use SMSGatewayMe\Client\ApiClient;
+use SMSGatewayMe\Client\Configuration;
+use SMSGatewayMe\Client\Api\MessageApi;
+use SMSGatewayMe\Client\Model\SendMessageRequest;
+
 defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Schedules extends CI_Controller {
@@ -57,11 +63,23 @@ class Schedules extends CI_Controller {
 		if ($status) {
 			$status_id = $status->id;
 		}
+                
+                $msg = $this->schedules_model->getMessageDetails($data);    
+                switch ($status_id) {
+                    case '3':
+                        $sMessage =  ' your schedule has been rejected ';
+                        break;
+                    case '2':
+                        $sMessage =  ' your schedule has been approved ';
+                        break;
+                }
+                $msgg = $this->sendSms(json_decode(json_encode($msg), True), $sMessage);
+                
 		if ($this->global_model->update('schedules', 'schedule_id', $data['schedule_id'], array('status' => $status_id))) {
 			$this->custom_session->flashDataMessage('success', 'Success', 'Schedule updated');
 			redirect('admin/schedules/list');
 		}
-		
+		               
 	}
 
 	public function calendar(){
@@ -109,6 +127,35 @@ class Schedules extends CI_Controller {
 	public function updateSchedule(){
 		$aParam = $this->input->post();
 		$res = $this->schedules_model->updateSchedule($aParam); 
+		$msg = $this->schedules_model->getMessageDetails($aParam);    
+                switch ($aParam['status']) {
+                    case '3':
+                        $sMessage =  ' your schedule has been rejected ';
+                        break;
+                    case '2':
+                        $sMessage =  ' your schedule has been approved ';
+                        break;
+                }
+                $msgg = $this->sendSms(json_decode(json_encode($msg), True), $sMessage);
 		echo json_encode($res);
 	}
+        
+        public function sendSms($aParam, $sMessage){
+              
+                // Configure client
+                $config = Configuration::getDefaultConfiguration();
+                $config->setApiKey('Authorization', 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJhZG1pbiIsImlhdCI6MTU0OTY5MjczOCwiZXhwIjo0MTAyNDQ0ODAwLCJ1aWQiOjQxMjc3LCJyb2xlcyI6WyJST0xFX1VTRVIiXX0.nr22NzEP9piwW8d2K_4O2IGJrKJgtOEcIE0_O77z-lw');
+                $apiClient = new ApiClient($config);
+                $messageClient = new MessageApi($apiClient);
+
+                // Sending a SMS Message
+                $sendMessageRequest = new SendMessageRequest([
+                    'phoneNumber' => $aParam['contact_num'],
+                    'message' => 'Hi! '.$aParam['fname'].', this is Makahayop Clinic, I just want to inform you that '. $sMessage . ' (' .$aParam['date'].' at '. $aParam['time']. ')',
+                    'deviceId' => 100181
+                ]);
+
+                $messageClient->sendMessages([$sendMessageRequest]);
+     
+        }
 }

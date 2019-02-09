@@ -178,6 +178,10 @@ function viewSchedulebyID(schedule_id){
                 $('#btn-app').addClass('hide').removeClass('show');
                 $('#btn-dapp').addClass('hide').removeClass('show');
               break;
+            case '3':
+                $('#btn-app').addClass('hide').removeClass('show');
+                $('#btn-dapp').addClass('hide').removeClass('show');
+              break;
             default:
                 $('#btn-dapp').addClass('show').removeClass('hide');
                 $('#btn-app').addClass('show').removeClass('hide');

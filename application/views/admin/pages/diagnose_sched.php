@@ -62,6 +62,7 @@
       <div class="box box-danger">
         <div class="box-header">
           <h3 class="box-title"><i class="fa fa-fw fa-heartbeat"></i> Diagnose Details</h3>
+          <a type="button" class="btn btn-danger btn-xs pull-right" data-toggle="modal" data-target="#modal-add-diagnose"><i class="fa fa-fw fa-plus"></i></a>
         </div>
         <div class="box-body">
           <table id="tbl-pet-diagnose" class="table table-striped">
@@ -94,6 +95,7 @@
       <!-- /.row -->
     </section>
     <!-- /.content -->
+    <?php $this->load->view('admin/modals/diagnose_sched_add_diagnose') ?>
 
     <script>
     	var ajaxUrl = '<?= site_url('admin/diagnose/ajaxGetSchedule') ?>'

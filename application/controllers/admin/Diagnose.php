@@ -56,4 +56,14 @@ class Diagnose extends CI_Controller {
 		}
 		echo json_encode($data);
 	}
+
+	public function addDiagnose()
+	{
+		if($this->global_model->insert('diagnose', $this->input->post())){
+			$this->custom_library->flashDataMessage('info', 'ADD SUCCESS', 'Added pet diagnose successfully');
+		} else {
+			$this->custom_library->flashDataMessage('danger', 'ADD ERROR', 'Added pet diagnose error');
+		}
+		redirect('admin/diagnose/schedule/'.$this->input->post('schedule_id'));
+	}
 }

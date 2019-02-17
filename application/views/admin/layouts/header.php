@@ -56,8 +56,8 @@
 
   <?php if ($page == 'customers' || $page == 'schedules_list' || $page == 'diagnose'): ?>
   <!-- DataTables -->
-  <script src="<?= base_url('assets/adminlte/bower_components/datatables.net/js/jquery.dataTables.min.js') ?>"></script>
-  <script src="<?= base_url('assets/adminlte/bower_components/datatables.net-bs/js/dataTables.bootstrap.min.js') ?>"></script>
+  <script  src="<?= base_url('assets/adminlte/bower_components/datatables.net/js/jquery.dataTables.min.js') ?>"></script>
+  <script  src="<?= base_url('assets/adminlte/bower_components/datatables.net-bs/js/dataTables.bootstrap.min.js') ?>"></script>
   <?php endif ?> 
   
   <!-- Bootstrap Datepicker -->
@@ -65,9 +65,17 @@
 
   <!-- ChartJS 1.0.1 -->
   <script src=" <?= base_url('assets/adminlte/plugins/chart/Chart.min.js') ?>"></script>
+  <!-- ChartJS 1.0.1 -->
+  <script src=" <?= base_url('assets/adminlte/bower_components/chart.js/Chart.js') ?>"></script>
   
   <?php if ($page == 'customers' || $page == 'schedules_list' || $page == 'diagnose'): ?>
   <!-- Main JS -->
-  <script defer src="<?= base_url('assets/custom_js/main.js') ?>"></script>
+  <script src="<?= base_url('assets/custom_js/main.js') ?>"></script>
+  <?php endif ?> 
+
+
+  <?php if ($page == 'reports'): ?>
+  <!-- Demo JS -->
+  <script src="<?= base_url('assets/adminlte/dist/js/demo.js') ?>"></script>
   <?php endif ?> 
 </head>

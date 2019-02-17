@@ -1,25 +1,66 @@
-<!-- BAR CHART -->
-  <div class="card card-success">
-    <div class="card-header">
-      <h3 class="card-title">Bar Chart</h3>
+<section class="content">
+  <div class="row">
+    <div class="col-md-12">
+      <!-- BAR CHART -->
+      <div class="box box-success">
+        <div class="box-header with-border">
+          <h3 class="box-title">Bar Chart</h3>
 
-      <div class="card-tools">
-        <button type="button" class="btn btn-tool" data-widget="collapse"><i class="fa fa-minus"></i>
-        </button>
-        <button type="button" class="btn btn-tool" data-widget="remove"><i class="fa fa-times"></i></button>
+          <div class="box-tools pull-right">
+            <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
+            </button>
+            <button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
+          </div>
+        </div>
+        <div class="box-body">
+          <div class="chart">
+            <canvas id="barChart" style="height:230px"></canvas>
+          </div>
+        </div>
+        <!-- /.box-body -->
       </div>
+      <!-- /.box -->
+
+
+
     </div>
-    <div class="card-body">
-      <div class="chart">
-        <canvas id="barChart" style="height:230px"></canvas>
-      </div>
-    </div>
-    <!-- /.card-body -->
+    <!-- /.col (RIGHT) -->
   </div>
-<!-- /.card -->
+  <!-- /.row -->
+</section>
+<script>
+  $(function () {
+    /* ChartJS
+     * -------
+     * Here we will create a few charts using ChartJS
+     */
 
+    var areaChartData = {
+      labels  : ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
+      datasets: [
+        {
+          label               : 'Electronics',
+          fillColor           : 'rgba(210, 214, 222, 1)',
+          strokeColor         : 'rgba(210, 214, 222, 1)',
+          pointColor          : 'rgba(210, 214, 222, 1)',
+          pointStrokeColor    : '#c1c7d1',
+          pointHighlightFill  : '#fff',
+          pointHighlightStroke: 'rgba(220,220,220,1)',
+          data                : [65, 59, 80, 81, 56, 55, 40]
+        },
+        {
+          label               : 'Digital Goods',
+          fillColor           : 'rgba(60,141,188,0.9)',
+          strokeColor         : 'rgba(60,141,188,0.8)',
+          pointColor          : '#3b8bba',
+          pointStrokeColor    : 'rgba(60,141,188,1)',
+          pointHighlightFill  : '#fff',
+          pointHighlightStroke: 'rgba(60,141,188,1)',
+          data                : [28, 48, 40, 19, 86, 27, 90]
+        }
+      ]
+    }
 
-<script type="text/javascript">
     //-------------
     //- BAR CHART -
     //-------------
@@ -59,7 +100,6 @@
 
     barChartOptions.datasetFill = false
     barChart.Bar(barChartData, barChartOptions)
+  })
 </script>
-
-
 

@@ -114,13 +114,13 @@ class Schedules_model extends CI_Model{
                  SELECT `sc`.*, 
                  (DATE_FORMAT(`sc`.`date_time`,'%b %d, %H:%i'))  as `full_date`, 
                  (SELECT `pet_name` FROM `pets` 
-                   WHERE  `user_id`  = '".$aParam['id']."' AND 
+                   WHERE  
                    `pet_id` = `sc`.`pet_id` LIMIT 1) as `pet_name`,
                 (SELECT `name` FROM `schedule_status` 
                    WHERE  
                    `id` = `sc`.`status` LIMIT 1) as `status_name`
                 FROM `schedules`  `sc`
-                WHERE `sc`.`user_id`  = '".$aParam['id']."' AND 
+                WHERE
                     `sc`.`is_deleted` = '0' AND 
                     `sc`.`schedule_id` =  '".$aParam['schedule_id']."' 
                 GROUP BY `sc`.`schedule_id`

@@ -144,7 +144,7 @@ class Schedules extends CI_Controller {
               
                 // Configure client
                 $config = Configuration::getDefaultConfiguration();
-                $config->setApiKey('Authorization', 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJhZG1pbiIsImlhdCI6MTU0OTY5MjczOCwiZXhwIjo0MTAyNDQ0ODAwLCJ1aWQiOjQxMjc3LCJyb2xlcyI6WyJST0xFX1VTRVIiXX0.nr22NzEP9piwW8d2K_4O2IGJrKJgtOEcIE0_O77z-lw');
+                $config->setApiKey('Authorization', 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJhZG1pbiIsImlhdCI6MTU1MDMyNzM2MSwiZXhwIjo0MTAyNDQ0ODAwLCJ1aWQiOjQxMjc3LCJyb2xlcyI6WyJST0xFX1VTRVIiXX0.XaoquSINsiNnM6Hg9QHQKcraf_ToRcrJ3PWCXYtSkk4');
                 $apiClient = new ApiClient($config);
                 $messageClient = new MessageApi($apiClient);
 

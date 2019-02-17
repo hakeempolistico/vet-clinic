@@ -124,7 +124,7 @@ class Schedules_model extends CI_Model{
                     `sc`.`is_deleted` = '0' AND 
                     `sc`.`schedule_id` =  '".$aParam['schedule_id']."' 
                 GROUP BY `sc`.`schedule_id`
-            ")->result(); 
+            ")->result();  
         return $query;
     }
 

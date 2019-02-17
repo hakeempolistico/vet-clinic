@@ -41,7 +41,7 @@ class Schedule_model extends CI_Model{
     public function getGetListView($aParam){
         $query = $this->db->query("
             SELECT `sc`.*, 
-                 (DATE_FORMAT(`sc`.`date_time`, '%b %d,%r'))  as `full_date`, 
+                 CONCAT ((DATE_FORMAT(`sc`.`date_time`, '%b %d, %Y |')),  `sc`.`time`, ' to ', ADDTIME(`sc`.`time`, '3000'))  as `full_date`, 
                  (SELECT `pet_name` FROM `pets` 
                    WHERE  `user_id`  = '".$aParam['id']."' AND 
                    `pet_id` = `sc`.`pet_id` LIMIT 1) as `pet_name`,
@@ -86,7 +86,7 @@ class Schedule_model extends CI_Model{
     public function viewTop10ApprovedSchedules($aParam){
         $query = $this->db->query("
                 SELECT `sc`.*, 
-                 (DATE_FORMAT(`sc`.`date_time`, '%b %d,%r'))  as `full_date`, 
+                CONCAT ((DATE_FORMAT(`sc`.`date_time`, '%b %d, %Y |')),  `sc`.`time`, ' to ', ADDTIME(`sc`.`time`, '3000'))  as `full_date`, 
                  (SELECT `pet_name` FROM `pets` 
                    WHERE  `user_id`  = '".$aParam['id']."' AND 
                    `pet_id` = `sc`.`pet_id` LIMIT 1) as `pet_name`,

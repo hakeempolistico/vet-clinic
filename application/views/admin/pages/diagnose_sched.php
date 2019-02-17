@@ -95,7 +95,7 @@
       <!-- /.row -->
     </section>
     <!-- /.content -->
-    <?php $this->load->view('admin/modals/diagnose_sched_add_diagnose') ?>
+   <!--  <?php $this->load->view('admin/modals/diagnose_sched_add_diagnose') ?> -->
 
     <script>
     	var ajaxUrl = '<?= site_url('admin/diagnose/ajaxGetSchedule') ?>'

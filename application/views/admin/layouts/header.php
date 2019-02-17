@@ -62,6 +62,9 @@
   
   <!-- Bootstrap Datepicker -->
   <script src="<?= base_url('assets/adminlte/bower_components/bootstrap-datepicker/dist/js/bootstrap-datepicker.min.js') ?> "></script>
+
+  <!-- ChartJS 1.0.1 -->
+  <script src=" <?= base_url('assets/adminlte/plugins/chart/Chart.min.js') ?>"></script>
   
   <?php if ($page == 'customers' || $page == 'schedules_list' || $page == 'diagnose'): ?>
   <!-- Main JS -->

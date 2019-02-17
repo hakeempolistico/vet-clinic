@@ -11,7 +11,7 @@ class Schedules extends CI_Controller {
 
 	public function __construct()
 	{
-	    parent::__construct();
+	    parent::__construct(); 
 	    $this->custom_session->checkSession('Admin');
 	    $this->load->model('admin/schedules_model');
 	}
@@ -140,22 +140,22 @@ class Schedules extends CI_Controller {
 		echo json_encode($res);
 	}
         
-        public function sendSms($aParam, $sMessage){
-              
-                // Configure client
-                $config = Configuration::getDefaultConfiguration();
-                $config->setApiKey('Authorization', 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJhZG1pbiIsImlhdCI6MTU1MDMyNzM2MSwiZXhwIjo0MTAyNDQ0ODAwLCJ1aWQiOjQxMjc3LCJyb2xlcyI6WyJST0xFX1VTRVIiXX0.XaoquSINsiNnM6Hg9QHQKcraf_ToRcrJ3PWCXYtSkk4');
-                $apiClient = new ApiClient($config);
-                $messageClient = new MessageApi($apiClient);
+   public function sendSms($aParam, $sMessage){
+          
+            // Configure client
+            $config = Configuration::getDefaultConfiguration();
+            $config->setApiKey('Authorization', 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJhZG1pbiIsImlhdCI6MTU1MDMzNTQxNiwiZXhwIjo0MTAyNDQ0ODAwLCJ1aWQiOjQxMjc3LCJyb2xlcyI6WyJST0xFX1VTRVIiXX0.fAAkGDkBHaLY2XeNHEmPDIe_j0MMP4L2y-t24Lr0odI');
+            $apiClient = new ApiClient($config);
+            $messageClient = new MessageApi($apiClient);
 
-                // Sending a SMS Message
-                $sendMessageRequest = new SendMessageRequest([
-                    'phoneNumber' => $aParam['contact_num'],
-                    'message' => 'Hi! '.$aParam['fname'].', this is Makahayop Clinic, I just want to inform you that '. $sMessage . ' (' .$aParam['date'].' at '. $aParam['time']. ')',
-                    'deviceId' => 100181
-                ]);
+            // Sending a SMS Message
+            $sendMessageRequest = new SendMessageRequest([
+                'phoneNumber' => $aParam['contact_num'],
+                'message' => 'Hi! '.$aParam['fname'].', this is Makahayop Clinic, I just want to inform you that '. $sMessage . ' (' .$aParam['date'].' at '. $aParam['time']. ')',
+                'deviceId' => 109466
+            ]);
 
-                $messageClient->sendMessages([$sendMessageRequest]);
-     
-        }
+            $messageClient->sendMessages([$sendMessageRequest]);
+ 
+    }
 }
